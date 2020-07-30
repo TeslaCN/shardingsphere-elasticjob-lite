@@ -17,9 +17,6 @@
 
 package org.apache.shardingsphere.elasticjob.cloud.console;
 
-import java.io.IOException;
-import java.net.URISyntaxException;
-import java.util.Map;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import org.apache.http.HttpEntity;
@@ -33,6 +30,10 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.apache.shardingsphere.elasticjob.cloud.scheduler.exception.HttpClientException;
+
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.util.Map;
 
 /**
  * Http utils.
@@ -76,9 +77,29 @@ public final class HttpTestUtil {
     }
     
     /**
+     * Send post request and get body.
+     *
+     * @param url     url
+     * @param content content
+     * @return http response body
+     */
+    public static String postAndGetBody(final String url, final String content) {
+        try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
+            HttpPost httpPost = new HttpPost(url);
+            StringEntity entity = new StringEntity(content, "utf-8");
+            entity.setContentEncoding("UTF-8");
+            entity.setContentType("application/json");
+            httpPost.setEntity(entity);
+            return EntityUtils.toString(httpClient.execute(httpPost).getEntity());
+        } catch (IOException e) {
+            throw new HttpClientException("send a post request for '%s' with parameter '%s' failed", e, url, content);
+        }
+    }
+    
+    /**
      * Send put request.
      *
-     * @param url url
+     * @param url     url
      * @param content content
      * @return http status code
      */

@@ -20,13 +20,13 @@ package org.apache.shardingsphere.elasticjob.cloud.console;
 import lombok.AccessLevel;
 import lombok.Getter;
 import org.apache.mesos.SchedulerDriver;
-import org.apache.shardingsphere.elasticjob.cloud.console.controller.search.JobEventRdbSearch;
+import org.apache.shardingsphere.elasticjob.cloud.console.service.search.JobEventRdbSearch;
 import org.apache.shardingsphere.elasticjob.cloud.scheduler.env.RestfulServerConfiguration;
 import org.apache.shardingsphere.elasticjob.cloud.scheduler.mesos.FacadeService;
 import org.apache.shardingsphere.elasticjob.cloud.scheduler.mesos.MesosStateService;
 import org.apache.shardingsphere.elasticjob.cloud.scheduler.mesos.ReconcileService;
-import org.apache.shardingsphere.elasticjob.cloud.scheduler.mesos.fixture.master.MesosMasterServerMockConfiguration;
-import org.apache.shardingsphere.elasticjob.cloud.scheduler.mesos.fixture.slave.MesosSlaveServerMockConfiguration;
+import org.apache.shardingsphere.elasticjob.cloud.scheduler.mesos.fixture.master.MesosMasterServerMock;
+import org.apache.shardingsphere.elasticjob.cloud.scheduler.mesos.fixture.slave.MesosSlaveServerMock;
 import org.apache.shardingsphere.elasticjob.cloud.scheduler.producer.ProducerManager;
 import org.apache.shardingsphere.elasticjob.reg.base.CoordinatorRegistryCenter;
 import org.junit.AfterClass;
@@ -34,7 +34,9 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import org.mockito.junit.MockitoJUnitRunner;
-import org.springframework.context.ConfigurableApplicationContext;
+import reactor.core.publisher.Mono;
+import reactor.netty.DisposableServer;
+import reactor.netty.http.server.HttpServer;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.reset;
@@ -50,9 +52,9 @@ public abstract class AbstractCloudControllerTest {
     
     private static ConsoleBootstrap consoleBootstrap;
     
-    private static ConfigurableApplicationContext masterServer;
+    private static DisposableServer mesosMasterServer;
     
-    private static ConfigurableApplicationContext slaveServer;
+    private static DisposableServer mesosSlaveServer;
     
     @BeforeClass
     public static void setUpClass() throws Exception {
@@ -73,20 +75,30 @@ public abstract class AbstractCloudControllerTest {
     
     private static void initMesosServer() {
         MesosStateService.register("127.0.0.1", 9050);
-        ConsoleBootstrap.ConsoleApplication.setPort(9050);
-        ConsoleBootstrap.ConsoleApplication.setExtraSources(new Class[]{MesosMasterServerMockConfiguration.class});
-        masterServer = ConsoleBootstrap.ConsoleApplication.start();
-        ConsoleBootstrap.ConsoleApplication.setPort(9051);
-        ConsoleBootstrap.ConsoleApplication.setExtraSources(new Class[]{MesosSlaveServerMockConfiguration.class});
-        slaveServer = ConsoleBootstrap.ConsoleApplication.start();
+        initMesosMasterServer();
+        initMesosSlaveServer();
+    }
+    
+    private static void initMesosMasterServer() {
+        mesosMasterServer = HttpServer.create()
+                .port(9050)
+                .route(routes -> routes.get("/state", (request, response) -> response.sendString(Mono.just(MesosMasterServerMock.state()))))
+                .bindNow();
+    }
+    
+    private static void initMesosSlaveServer() {
+        mesosSlaveServer = HttpServer.create()
+                .port(9051)
+                .route(routes -> routes.get("/state", (request, response) -> response.sendString(Mono.just(MesosSlaveServerMock.state()))))
+                .bindNow();
     }
     
     @AfterClass
     public static void tearDown() {
         consoleBootstrap.stop();
-        masterServer.stop();
-        slaveServer.stop();
         MesosStateService.deregister();
+        mesosMasterServer.disposeNow();
+        mesosSlaveServer.disposeNow();
     }
     
     @Before

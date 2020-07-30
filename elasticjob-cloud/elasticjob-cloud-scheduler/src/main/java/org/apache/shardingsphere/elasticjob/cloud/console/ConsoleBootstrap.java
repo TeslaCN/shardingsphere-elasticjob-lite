@@ -17,76 +17,219 @@
 
 package org.apache.shardingsphere.elasticjob.cloud.console;
 
-import lombok.Setter;
-import org.apache.commons.lang3.ArrayUtils;
-import org.apache.shardingsphere.elasticjob.cloud.console.controller.CloudAppController;
-import org.apache.shardingsphere.elasticjob.cloud.console.controller.CloudJobController;
-import org.apache.shardingsphere.elasticjob.cloud.console.controller.CloudOperationController;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonSyntaxException;
+import io.netty.handler.codec.http.HttpHeaderNames;
+import io.netty.handler.codec.http.HttpHeaderValues;
+import org.apache.shardingsphere.elasticjob.cloud.config.pojo.CloudJobConfigurationPOJO;
+import org.apache.shardingsphere.elasticjob.cloud.console.service.CloudAppService;
+import org.apache.shardingsphere.elasticjob.cloud.console.service.CloudJobService;
+import org.apache.shardingsphere.elasticjob.cloud.console.service.CloudOperationService;
+import org.apache.shardingsphere.elasticjob.cloud.scheduler.config.app.pojo.CloudAppConfigurationPOJO;
 import org.apache.shardingsphere.elasticjob.cloud.scheduler.env.RestfulServerConfiguration;
+import org.apache.shardingsphere.elasticjob.cloud.scheduler.exception.AppConfigurationException;
 import org.apache.shardingsphere.elasticjob.cloud.scheduler.mesos.ReconcileService;
 import org.apache.shardingsphere.elasticjob.cloud.scheduler.producer.ProducerManager;
 import org.apache.shardingsphere.elasticjob.reg.base.CoordinatorRegistryCenter;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.web.server.WebServerFactoryCustomizer;
-import org.springframework.boot.web.servlet.server.ConfigurableServletWebServerFactory;
-import org.springframework.context.ConfigurableApplicationContext;
+import reactor.core.publisher.Mono;
+import reactor.netty.DisposableServer;
+import reactor.netty.http.server.HttpServer;
+import reactor.netty.http.server.HttpServerRoutes;
+
+import java.text.ParseException;
+import java.util.ArrayList;
 
 /**
  * Console bootstrap for Cloud.
  */
 public class ConsoleBootstrap {
     
-    private ConfigurableApplicationContext context;
+    private final int port;
+    
+    private DisposableServer httpServer;
     
     public ConsoleBootstrap(final CoordinatorRegistryCenter regCenter, final RestfulServerConfiguration config, final ProducerManager producerManager, final ReconcileService reconcileService) {
-        ConsoleApplication.port = config.getPort();
-        CloudJobController.init(regCenter, producerManager);
-        CloudAppController.init(regCenter, producerManager);
-        CloudOperationController.init(regCenter, reconcileService);
+        this.port = config.getPort();
+        CloudAppService.init(regCenter, producerManager);
+        CloudJobService.init(regCenter, producerManager);
+        CloudOperationService.init(regCenter, reconcileService);
     }
     
     /**
      * Startup RESTful server.
      */
     public void start() {
-        context = ConsoleApplication.start();
+        httpServer = HttpServer.create().port(port)
+                .route(routes -> {
+                    addAppRoutes(routes);
+                    addOperationRoutes(routes);
+                    addJobRoutes(routes);
+                }).bindNow();
+    }
+    
+    private void addAppRoutes(final HttpServerRoutes routes) {
+        CloudAppService appOperation = CloudAppService.getInstance();
+        Gson gson = new GsonBuilder().serializeNulls().create();
+        routes
+                .post("/api/app", (request, response) -> response.sendString(request.receive().asString()
+                        .map(bodyString -> {
+                            try {
+                                CloudAppConfigurationPOJO appConfigurationPOJO = gson.fromJson(bodyString, CloudAppConfigurationPOJO.class);
+                                return String.valueOf(appOperation.register(appConfigurationPOJO));
+                            } catch (AppConfigurationException ex) {
+                                return ex.toString();
+                            } catch (JsonSyntaxException ex) {
+                                return ex.getMessage();
+                            }
+                        })
+                ))
+                .put("/api/app", (request, response) -> response.sendString(
+                        request.receive().asString().map(bodyString -> {
+                            CloudAppConfigurationPOJO appConfigurationPOJO = gson.fromJson(bodyString, CloudAppConfigurationPOJO.class);
+                            return String.valueOf(appOperation.update(appConfigurationPOJO));
+                        })
+                ))
+                .get("/api/app/list", (request, response) ->
+                        response.addHeader(HttpHeaderNames.CONTENT_TYPE, HttpHeaderValues.APPLICATION_JSON)
+                                .sendString(Mono.just(gson.toJson(appOperation.findAllApps())))
+                )
+                .get("/api/app/{appName}", (request, response) ->
+                        response.addHeader(HttpHeaderNames.CONTENT_TYPE, HttpHeaderValues.APPLICATION_JSON)
+                                .sendString(Mono.just(gson.toJson(appOperation.detail(request.param("appName")))))
+                )
+                .get("/api/app/{appName}/disable", (request, response) ->
+                        response.sendString(Mono.just(String.valueOf(appOperation.isDisabled(request.param("appName")))))
+                )
+                .post("/api/app/{appName}/disable", (request, response) ->
+                        response.sendString(Mono.just(String.valueOf(appOperation.disable(request.param("appName")))))
+                )
+                .post("/api/app/{appName}/enable", (request, response) ->
+                        response.sendString(Mono.just(String.valueOf(appOperation.enable(request.param("appName")))))
+                )
+                .delete("/api/app/{appName}", (request, response) ->
+                        response.sendString(Mono.just(gson.toJson(appOperation.deregister(request.param("appName"))))));
+    }
+    
+    private void addOperationRoutes(final HttpServerRoutes routes) {
+        CloudOperationService cloudOperationService = CloudOperationService.getInstance();
+        Gson gson = new GsonBuilder().serializeNulls().create();
+        routes
+                .get("/api/operate/sandbox/{appName}", (request, response) ->
+                        response.addHeader(HttpHeaderNames.CONTENT_TYPE, HttpHeaderValues.APPLICATION_JSON)
+                                .sendString(Mono.just(gson.toJson(new ArrayList<>(cloudOperationService.sandbox(request.param("appName"))))))
+                )
+                .post("/api/operate/reconcile/explicit", (request, response) ->
+                        response.sendString(Mono.just(String.valueOf(cloudOperationService.explicitReconcile())))
+                )
+                .post("/api/operate/reconcile/implicit", (request, response) ->
+                        response.sendString(Mono.just(String.valueOf(cloudOperationService.implicitReconcile()))));
+    }
+    
+    private void addJobRoutes(final HttpServerRoutes routes) {
+        CloudJobService cloudJobService = CloudJobService.getInstance();
+        Gson gson = new GsonBuilder().serializeNulls().create();
+        routes
+                .post("/api/job/register", (request, response) -> response.sendString(
+                        request.receive().asString().map(bodyString -> {
+                            try {
+                                CloudJobConfigurationPOJO cloudJobConfigurationPOJO = gson.fromJson(bodyString, CloudJobConfigurationPOJO.class);
+                                return gson.toJson(cloudJobService.register(cloudJobConfigurationPOJO));
+                            } catch (AppConfigurationException ex) {
+                                return ex.toString();
+                            }
+                        }))
+                )
+                .put("/api/job/update", (request, response) -> response.sendString(
+                        request.receive().asString().map(bodyString -> {
+                            CloudJobConfigurationPOJO cloudJobConfigurationPOJO = gson.fromJson(bodyString, CloudJobConfigurationPOJO.class);
+                            return gson.toJson(cloudJobService.update(cloudJobConfigurationPOJO));
+                        })
+                ))
+                .delete("/api/job/{jobName}/deregister", (request, response) ->
+                        response.sendString(Mono.just(gson.toJson(cloudJobService.deregister(request.param("jobName")))))
+                )
+                .get("/api/job/{jobName}/disable", (request, response) ->
+                        response.sendString(Mono.just(gson.toJson(cloudJobService.isDisabled(request.param("jobName")))))
+                )
+                .post("/api/job/{jobName}/enable", (request, response) ->
+                        response.sendString(Mono.just(gson.toJson(cloudJobService.enable(request.param("jobName")))))
+                )
+                .post("/api/job/{jobName}/disable", (request, response) ->
+                        response.sendString(Mono.just(gson.toJson(cloudJobService.disable(request.param("jobName")))))
+                )
+                .post("/api/job/trigger", (request, response) -> response.sendString(
+                        request.receive().asString().map(jobName -> {
+                            return gson.toJson(cloudJobService.trigger(jobName));
+                        }))
+                )
+                .get("/api/job/jobs/{jobName}", (request, response) ->
+                        response.addHeader(HttpHeaderNames.CONTENT_TYPE, HttpHeaderValues.APPLICATION_JSON)
+                                .sendString(Mono.just(gson.toJson(cloudJobService.detail(request.param("jobName")))))
+                )
+                .get("/api/job/jobs", (request, response) ->
+                        response.addHeader(HttpHeaderNames.CONTENT_TYPE, HttpHeaderValues.APPLICATION_JSON)
+                                .sendString(Mono.just(gson.toJson(cloudJobService.findAllJobs())))
+                )
+                .get("/api/job/tasks/running", (request, response) ->
+                        response.addHeader(HttpHeaderNames.CONTENT_TYPE, HttpHeaderValues.APPLICATION_JSON)
+                                .sendString(Mono.just(gson.toJson(cloudJobService.findAllRunningTasks())))
+                )
+                .get("/api/job/tasks/ready", (request, response) ->
+                        response.addHeader(HttpHeaderNames.CONTENT_TYPE, HttpHeaderValues.APPLICATION_JSON)
+                                .sendString(Mono.just(gson.toJson(cloudJobService.findAllReadyTasks())))
+                )
+                .get("/api/job/tasks/failover", (request, response) ->
+                        response.addHeader(HttpHeaderNames.CONTENT_TYPE, HttpHeaderValues.APPLICATION_JSON)
+                                .sendString(Mono.just(gson.toJson(cloudJobService.findAllFailoverTasks())))
+                )
+                .get("/api/job/events/executions", (request, response) -> {
+                            try {
+                                return response.addHeader(HttpHeaderNames.CONTENT_TYPE, HttpHeaderValues.APPLICATION_JSON)
+                                        .sendString(Mono.just(gson.toJson(cloudJobService.findJobExecutionEvents(request.params()))));
+                            } catch (ParseException ex) {
+                                return response.sendString(Mono.just(ex.toString()));
+                            }
+                        }
+                )
+                .get("/api/job/events/statusTraces", (request, response) -> {
+                            try {
+                                return response.addHeader(HttpHeaderNames.CONTENT_TYPE, HttpHeaderValues.APPLICATION_JSON)
+                                        .sendString(Mono.just(gson.toJson(cloudJobService.findJobStatusTraceEvents(request.params()))));
+                            } catch (ParseException ex) {
+                                return response.sendString(Mono.just(ex.toString()));
+                            }
+                        }
+                )
+                .get("/api/job/statistics/tasks/results", (request, response) ->
+                        response.addHeader(HttpHeaderNames.CONTENT_TYPE, HttpHeaderValues.APPLICATION_JSON)
+                                .sendString(Mono.just(gson.toJson(cloudJobService.findTaskResultStatistics(request.param("since")))))
+                )
+                .get("/api/job/statistics/tasks/results/{period}", (request, response) ->
+                        response.addHeader(HttpHeaderNames.CONTENT_TYPE, HttpHeaderValues.APPLICATION_JSON)
+                                .sendString(Mono.just(gson.toJson(cloudJobService.getTaskResultStatistics(request.param("period")))))
+                )
+                .get("/api/job/statistics/tasks/running/{since}", (request, response) ->
+                        response.addHeader(HttpHeaderNames.CONTENT_TYPE, HttpHeaderValues.APPLICATION_JSON)
+                                .sendString(Mono.just(gson.toJson(cloudJobService.findTaskRunningStatistics(request.param("since")))))
+                )
+                .get("/api/job/statistics/jobs/executionType", (request, response) ->
+                        response.addHeader(HttpHeaderNames.CONTENT_TYPE, HttpHeaderValues.APPLICATION_JSON)
+                                .sendString(Mono.just(gson.toJson(cloudJobService.getJobExecutionTypeStatistics())))
+                )
+                .get("/api/job/statistics/jobs/running/{since}", (request, response) ->
+                        response.addHeader(HttpHeaderNames.CONTENT_TYPE, HttpHeaderValues.APPLICATION_JSON)
+                                .sendString(Mono.just(gson.toJson(new ArrayList<>(cloudJobService.findJobRunningStatistics(request.param("since"))))))
+                )
+                .get("/api/job/statistics/jobs/register", (request, response) ->
+                        response.addHeader(HttpHeaderNames.CONTENT_TYPE, HttpHeaderValues.APPLICATION_JSON)
+                                .sendString(Mono.just(gson.toJson(cloudJobService.findJobRegisterStatistics()))));
     }
     
     /**
      * Stop RESTful server.
      */
     public void stop() {
-        context.close();
-    }
-    
-    @SpringBootApplication
-    public static class ConsoleApplication implements WebServerFactoryCustomizer<ConfigurableServletWebServerFactory> {
-        
-        @Setter
-        private static int port;
-        
-        @Setter
-        private static Class<?>[] extraSources;
-        
-        /**
-         * Startup RESTful server.
-         * @return ConfigurableApplicationContext
-         */
-        public static ConfigurableApplicationContext start() {
-            SpringApplicationBuilder applicationBuilder = new SpringApplicationBuilder(ConsoleApplication.class);
-            if (ArrayUtils.isNotEmpty(extraSources)) {
-                applicationBuilder.sources(extraSources);
-            }
-            return applicationBuilder.build().run();
-        }
-        
-        @Override
-        public void customize(final ConfigurableServletWebServerFactory factory) {
-            if (port <= 0) {
-                return;
-            }
-            factory.setPort(port);
-        }
+        httpServer.dispose();
     }
 }
