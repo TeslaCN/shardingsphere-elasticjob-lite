@@ -33,6 +33,7 @@
         <module>elasticjob-dataflow-executor</module>
         <module>elasticjob-script-executor</module>
         <module>elasticjob-http-executor</module>
+        <module>elasticjob-dag-executor</module>
     </modules>
     
     <dependencies>

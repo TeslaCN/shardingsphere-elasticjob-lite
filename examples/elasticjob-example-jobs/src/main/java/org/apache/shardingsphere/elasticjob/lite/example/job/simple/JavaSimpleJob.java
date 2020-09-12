@@ -18,14 +18,15 @@
 package org.apache.shardingsphere.elasticjob.lite.example.job.simple;
 
 import org.apache.shardingsphere.elasticjob.api.ShardingContext;
-import org.apache.shardingsphere.elasticjob.simple.job.SimpleJob;
 import org.apache.shardingsphere.elasticjob.lite.example.fixture.entity.Foo;
 import org.apache.shardingsphere.elasticjob.lite.example.fixture.repository.FooRepository;
 import org.apache.shardingsphere.elasticjob.lite.example.fixture.repository.FooRepositoryFactory;
+import org.apache.shardingsphere.elasticjob.simple.job.SimpleJob;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class JavaSimpleJob implements SimpleJob {
     
@@ -39,5 +40,11 @@ public class JavaSimpleJob implements SimpleJob {
         for (Foo each : data) {
             fooRepository.setCompleted(each.getId());
         }
+        try {
+            TimeUnit.MILLISECONDS.sleep((long) (Math.random() * 5000 * 2));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println(String.format("Done: %s", shardingContext.getShardingItem()));
     }
 }
