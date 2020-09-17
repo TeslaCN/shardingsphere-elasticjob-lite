@@ -17,6 +17,7 @@
 
 package org.apache.shardingsphere.elasticjob.dag.executor;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.shardingsphere.elasticjob.api.JobConfiguration;
 import org.apache.shardingsphere.elasticjob.api.ShardingContext;
 import org.apache.shardingsphere.elasticjob.dag.Dag;
@@ -34,6 +35,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.atomic.AtomicReference;
 
+@Slf4j
 public final class DagJobExecutor implements ClassedJobItemExecutor<DagConfiguration> {
     
     /**
@@ -44,6 +46,7 @@ public final class DagJobExecutor implements ClassedJobItemExecutor<DagConfigura
     @Override
     public void process(final DagConfiguration dagConfiguration, final JobConfiguration jobConfig, final JobFacade jobFacade, final ShardingContext shardingContext) {
         // TODO Each job should be configured only once on each node.
+        log.info("[{}-{}] started", shardingContext.getJobName(), shardingContext.getShardingItem());
         configured.computeIfAbsent(jobConfig.getJobName(), unused -> configureDag(dagConfiguration));
         if (!isMaster(shardingContext.getShardingItem())) {
             return;
