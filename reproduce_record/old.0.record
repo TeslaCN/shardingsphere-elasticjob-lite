@@ -1,0 +1,303 @@
+Connected to the target VM, address: '127.0.0.1:43873', transport: 'socket'
+[DEBUG]  2020-09-19 22:30:05,984 --main-- [org.apache.shardingsphere.elasticjob.reg.zookeeper.ZookeeperRegistryCenter] Elastic job: zookeeper registry center init, server lists is: 10.108.179.62:2181.
+[INFO ]  2020-09-19 22:30:10,406 --main-- [org.quartz.impl.StdSchedulerFactory] Using default implementation for ThreadExecutor
+[INFO ]  2020-09-19 22:30:10,419 --main-- [org.quartz.core.SchedulerSignalerImpl] Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[INFO ]  2020-09-19 22:30:10,419 --main-- [org.quartz.core.QuartzScheduler] Quartz Scheduler v.2.3.2 created.
+[INFO ]  2020-09-19 22:30:10,420 --main-- [org.apache.shardingsphere.elasticjob.lite.internal.schedule.JobShutdownHookPlugin] Registering Quartz shutdown hook. schedule-job
+[INFO ]  2020-09-19 22:30:10,420 --main-- [org.quartz.simpl.RAMJobStore] RAMJobStore initialized.
+[INFO ]  2020-09-19 22:30:10,421 --main-- [org.quartz.core.QuartzScheduler] Scheduler meta-data: Quartz Scheduler (v2.3.2) 'schedule-job' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 1 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[INFO ]  2020-09-19 22:30:10,421 --main-- [org.quartz.impl.StdSchedulerFactory] Quartz scheduler 'schedule-job' initialized from an externally provided properties instance.
+[INFO ]  2020-09-19 22:30:10,421 --main-- [org.quartz.impl.StdSchedulerFactory] Quartz scheduler version: 2.3.2
+[INFO ]  2020-09-19 22:30:10,444 --main-- [org.apache.shardingsphere.elasticjob.lite.internal.listener.ListenerManager] Starting listeners for schedule-job
+[INFO ]  2020-09-19 22:30:10,448 --main-- [org.apache.shardingsphere.elasticjob.lite.internal.listener.ListenerManager] Listeners started for schedule-job
+[DEBUG]  2020-09-19 22:30:10,448 --main-- [org.apache.shardingsphere.elasticjob.lite.internal.election.LeaderService] Elect a new leader now.
+[DEBUG]  2020-09-19 22:30:10,453 --Curator-SafeNotifyService-0-- [org.apache.shardingsphere.elasticjob.reg.exception.RegExceptionHandler] Elastic job: ignored exception for: KeeperErrorCode = NoNode for /reproduce/schedule-job/leader/election/instance
+[DEBUG]  2020-09-19 22:30:10,473 --Curator-SafeNotifyService-0-- [org.apache.shardingsphere.elasticjob.reg.exception.RegExceptionHandler] Elastic job: ignored exception for: KeeperErrorCode = NoNode for /reproduce/schedule-job/leader/election/instance
+[DEBUG]  2020-09-19 22:30:10,482 --Curator-SafeNotifyService-0-- [org.apache.shardingsphere.elasticjob.reg.exception.RegExceptionHandler] Elastic job: ignored exception for: KeeperErrorCode = NoNode for /reproduce/schedule-job/leader/election/instance
+[DEBUG]  2020-09-19 22:30:10,484 --Curator-SafeNotifyService-0-- [org.apache.shardingsphere.elasticjob.reg.exception.RegExceptionHandler] Elastic job: ignored exception for: KeeperErrorCode = NoNode for /reproduce/schedule-job/leader/election/instance
+[DEBUG]  2020-09-19 22:30:10,491 --main-- [org.apache.shardingsphere.elasticjob.lite.internal.election.LeaderService] Leader election completed.
+[INFO ]  2020-09-19 22:30:10,504 --Curator-SafeNotifyService-0-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingListenerManager] Server changed. Setting resharding NODE_CREATED /schedule-job/servers/192.168.3.233 ENABLED
+[INFO ]  2020-09-19 22:30:10,507 --Curator-SafeNotifyService-0-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] schedule-job Need resharding
+java.lang.Thread.getStackTrace(Thread.java:1559)
+org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService.setReshardingFlag(ShardingService.java:85)
+org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingListenerManager$ListenServersChangedJobListener.dataChanged(ShardingListenerManager.java:82)
+org.apache.shardingsphere.elasticjob.lite.internal.listener.AbstractJobListener.event(AbstractJobListener.java:40)
+org.apache.curator.framework.recipes.cache.CuratorCacheImpl.lambda$putStorage$7(CuratorCacheImpl.java:279)
+org.apache.curator.framework.listen.MappingListenerManager.lambda$forEach$0(MappingListenerManager.java:92)
+org.apache.curator.framework.listen.MappingListenerManager.forEach(MappingListenerManager.java:89)
+org.apache.curator.framework.listen.StandardListenerManager.forEach(StandardListenerManager.java:89)
+org.apache.curator.framework.recipes.cache.CuratorCacheImpl.lambda$callListeners$10(CuratorCacheImpl.java:293)
+java.util.concurrent.CompletableFuture$AsyncRun.run$$$capture(CompletableFuture.java:1640)
+java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java)
+java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+java.lang.Thread.run(Thread.java:748)
+[INFO ]  2020-09-19 22:30:10,522 --main-- [org.quartz.core.QuartzScheduler] Scheduler schedule-job_$_NON_CLUSTERED started.
+[DEBUG]  2020-09-19 22:30:10,523 --schedule-job_QuartzSchedulerThread-- [org.quartz.core.QuartzSchedulerThread] batch acquisition of 1 triggers
+[INFO ]  2020-09-19 22:30:10,527 --Curator-SafeNotifyService-0-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingListenerManager] Server changed. Setting resharding NODE_CREATED /schedule-job/instances
+[INFO ]  2020-09-19 22:30:10,528 --Curator-SafeNotifyService-0-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] schedule-job Need resharding
+java.lang.Thread.getStackTrace(Thread.java:1559)
+org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService.setReshardingFlag(ShardingService.java:85)
+org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingListenerManager$ListenServersChangedJobListener.dataChanged(ShardingListenerManager.java:82)
+org.apache.shardingsphere.elasticjob.lite.internal.listener.AbstractJobListener.event(AbstractJobListener.java:40)
+org.apache.curator.framework.recipes.cache.CuratorCacheImpl.lambda$putStorage$7(CuratorCacheImpl.java:279)
+org.apache.curator.framework.listen.MappingListenerManager.lambda$forEach$0(MappingListenerManager.java:92)
+org.apache.curator.framework.listen.MappingListenerManager.forEach(MappingListenerManager.java:89)
+org.apache.curator.framework.listen.StandardListenerManager.forEach(StandardListenerManager.java:89)
+org.apache.curator.framework.recipes.cache.CuratorCacheImpl.lambda$callListeners$10(CuratorCacheImpl.java:293)
+java.util.concurrent.CompletableFuture$AsyncRun.run$$$capture(CompletableFuture.java:1640)
+java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java)
+java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+java.lang.Thread.run(Thread.java:748)
+[INFO ]  2020-09-19 22:30:10,531 --Curator-SafeNotifyService-0-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingListenerManager] Server changed. Setting resharding NODE_CREATED /schedule-job/instances/192.168.3.233@-@1982250
+[INFO ]  2020-09-19 22:30:10,531 --Curator-SafeNotifyService-0-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] schedule-job Need resharding
+java.lang.Thread.getStackTrace(Thread.java:1559)
+org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService.setReshardingFlag(ShardingService.java:85)
+org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingListenerManager$ListenServersChangedJobListener.dataChanged(ShardingListenerManager.java:82)
+org.apache.shardingsphere.elasticjob.lite.internal.listener.AbstractJobListener.event(AbstractJobListener.java:40)
+org.apache.curator.framework.recipes.cache.CuratorCacheImpl.lambda$putStorage$7(CuratorCacheImpl.java:279)
+org.apache.curator.framework.listen.MappingListenerManager.lambda$forEach$0(MappingListenerManager.java:92)
+org.apache.curator.framework.listen.MappingListenerManager.forEach(MappingListenerManager.java:89)
+org.apache.curator.framework.listen.StandardListenerManager.forEach(StandardListenerManager.java:89)
+org.apache.curator.framework.recipes.cache.CuratorCacheImpl.lambda$callListeners$10(CuratorCacheImpl.java:293)
+java.util.concurrent.CompletableFuture$AsyncRun.run$$$capture(CompletableFuture.java:1640)
+java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java)
+java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+java.lang.Thread.run(Thread.java:748)
+[DEBUG]  2020-09-19 22:30:30,010 --schedule-job_QuartzSchedulerThread-- [org.quartz.simpl.PropertySettingJobFactory] Producing instance of Job 'DEFAULT.schedule-job', class=org.apache.shardingsphere.elasticjob.lite.internal.schedule.LiteJob
+[DEBUG]  2020-09-19 22:30:30,030 --schedule-job_Worker-1-- [org.quartz.core.JobRunShell] Calling execute on job DEFAULT.schedule-job
+[DEBUG]  2020-09-19 22:30:30,057 --schedule-job_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'schedule-job' sharding begin.
+[DEBUG]  2020-09-19 22:30:30,098 --schedule-job_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'schedule-job' sharding complete.
+[INFO ]  2020-09-19 22:30:30,152 --elasticjob-schedule-job-1-- [org.quartz.impl.StdSchedulerFactory] Using default implementation for ThreadExecutor
+[INFO ]  2020-09-19 22:30:30,153 --elasticjob-schedule-job-1-- [org.quartz.core.SchedulerSignalerImpl] Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[INFO ]  2020-09-19 22:30:30,154 --elasticjob-schedule-job-1-- [org.quartz.core.QuartzScheduler] Quartz Scheduler v.2.3.2 created.
+[INFO ]  2020-09-19 22:30:30,154 --elasticjob-schedule-job-1-- [org.apache.shardingsphere.elasticjob.lite.internal.schedule.JobShutdownHookPlugin] Registering Quartz shutdown hook. foo
+[INFO ]  2020-09-19 22:30:30,154 --elasticjob-schedule-job-1-- [org.quartz.simpl.RAMJobStore] RAMJobStore initialized.
+[INFO ]  2020-09-19 22:30:30,155 --elasticjob-schedule-job-1-- [org.quartz.core.QuartzScheduler] Scheduler meta-data: Quartz Scheduler (v2.3.2) 'foo' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 1 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[INFO ]  2020-09-19 22:30:30,155 --elasticjob-schedule-job-1-- [org.quartz.impl.StdSchedulerFactory] Quartz scheduler 'foo' initialized from an externally provided properties instance.
+[INFO ]  2020-09-19 22:30:30,155 --elasticjob-schedule-job-1-- [org.quartz.impl.StdSchedulerFactory] Quartz scheduler version: 2.3.2
+[INFO ]  2020-09-19 22:30:30,156 --elasticjob-schedule-job-1-- [org.apache.shardingsphere.elasticjob.lite.internal.listener.ListenerManager] Starting listeners for foo
+[INFO ]  2020-09-19 22:30:30,157 --elasticjob-schedule-job-1-- [org.apache.shardingsphere.elasticjob.lite.internal.listener.ListenerManager] Listeners started for foo
+[DEBUG]  2020-09-19 22:30:30,157 --elasticjob-schedule-job-1-- [org.apache.shardingsphere.elasticjob.lite.internal.election.LeaderService] Elect a new leader now.
+[DEBUG]  2020-09-19 22:30:30,165 --Curator-SafeNotifyService-0-- [org.apache.shardingsphere.elasticjob.reg.exception.RegExceptionHandler] Elastic job: ignored exception for: KeeperErrorCode = NoNode for /reproduce/foo/leader/election/instance
+[DEBUG]  2020-09-19 22:30:30,180 --Curator-SafeNotifyService-0-- [org.apache.shardingsphere.elasticjob.reg.exception.RegExceptionHandler] Elastic job: ignored exception for: KeeperErrorCode = NoNode for /reproduce/foo/leader/election/instance
+[DEBUG]  2020-09-19 22:30:30,187 --Curator-SafeNotifyService-0-- [org.apache.shardingsphere.elasticjob.reg.exception.RegExceptionHandler] Elastic job: ignored exception for: KeeperErrorCode = NoNode for /reproduce/foo/leader/election/instance
+[DEBUG]  2020-09-19 22:30:30,192 --elasticjob-schedule-job-1-- [org.apache.shardingsphere.elasticjob.lite.internal.election.LeaderService] Leader election completed.
+[INFO ]  2020-09-19 22:30:30,209 --Curator-SafeNotifyService-0-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingListenerManager] Server changed. Setting resharding NODE_CREATED /foo/servers/192.168.3.233 ENABLED
+[INFO ]  2020-09-19 22:30:30,209 --Curator-SafeNotifyService-0-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] foo Need resharding
+java.lang.Thread.getStackTrace(Thread.java:1559)
+org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService.setReshardingFlag(ShardingService.java:85)
+org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingListenerManager$ListenServersChangedJobListener.dataChanged(ShardingListenerManager.java:82)
+org.apache.shardingsphere.elasticjob.lite.internal.listener.AbstractJobListener.event(AbstractJobListener.java:40)
+org.apache.curator.framework.recipes.cache.CuratorCacheImpl.lambda$putStorage$7(CuratorCacheImpl.java:279)
+org.apache.curator.framework.listen.MappingListenerManager.lambda$forEach$0(MappingListenerManager.java:92)
+org.apache.curator.framework.listen.MappingListenerManager.forEach(MappingListenerManager.java:89)
+org.apache.curator.framework.listen.StandardListenerManager.forEach(StandardListenerManager.java:89)
+org.apache.curator.framework.recipes.cache.CuratorCacheImpl.lambda$callListeners$10(CuratorCacheImpl.java:293)
+java.util.concurrent.CompletableFuture$AsyncRun.run$$$capture(CompletableFuture.java:1640)
+java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java)
+java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+java.lang.Thread.run(Thread.java:748)
+[INFO ]  2020-09-19 22:30:30,217 --elasticjob-schedule-job-1-- [org.apache.shardingsphere.elasticjob.lite.example.bug.ScheduleSimpleJob] Execute job foo on 0
+[INFO ]  2020-09-19 22:30:30,218 --elasticjob-schedule-job-1-- [org.apache.shardingsphere.elasticjob.lite.api.bootstrap.impl.OneOffJobBootstrap] Write trigger /foo/instances/192.168.3.233@-@1982250
+[INFO ]  2020-09-19 22:30:30,224 --elasticjob-schedule-job-1-- [org.apache.shardingsphere.elasticjob.lite.api.bootstrap.impl.OneOffJobBootstrap] Write finished trigger /foo/instances/192.168.3.233@-@1982250
+[INFO ]  2020-09-19 22:30:30,232 --Curator-SafeNotifyService-0-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingListenerManager] Server changed. Setting resharding NODE_CREATED /foo/instances
+[INFO ]  2020-09-19 22:30:30,232 --Curator-SafeNotifyService-0-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] foo Need resharding
+java.lang.Thread.getStackTrace(Thread.java:1559)
+org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService.setReshardingFlag(ShardingService.java:85)
+org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingListenerManager$ListenServersChangedJobListener.dataChanged(ShardingListenerManager.java:82)
+org.apache.shardingsphere.elasticjob.lite.internal.listener.AbstractJobListener.event(AbstractJobListener.java:40)
+org.apache.curator.framework.recipes.cache.CuratorCacheImpl.lambda$putStorage$7(CuratorCacheImpl.java:279)
+org.apache.curator.framework.listen.MappingListenerManager.lambda$forEach$0(MappingListenerManager.java:92)
+org.apache.curator.framework.listen.MappingListenerManager.forEach(MappingListenerManager.java:89)
+org.apache.curator.framework.listen.StandardListenerManager.forEach(StandardListenerManager.java:89)
+org.apache.curator.framework.recipes.cache.CuratorCacheImpl.lambda$callListeners$10(CuratorCacheImpl.java:293)
+java.util.concurrent.CompletableFuture$AsyncRun.run$$$capture(CompletableFuture.java:1640)
+java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java)
+java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+java.lang.Thread.run(Thread.java:748)
+[INFO ]  2020-09-19 22:30:30,238 --Curator-SafeNotifyService-0-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingListenerManager] Server changed. Setting resharding NODE_CREATED /foo/instances/192.168.3.233@-@1982250
+[INFO ]  2020-09-19 22:30:30,238 --Curator-SafeNotifyService-0-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] foo Need resharding
+java.lang.Thread.getStackTrace(Thread.java:1559)
+org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService.setReshardingFlag(ShardingService.java:85)
+org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingListenerManager$ListenServersChangedJobListener.dataChanged(ShardingListenerManager.java:82)
+org.apache.shardingsphere.elasticjob.lite.internal.listener.AbstractJobListener.event(AbstractJobListener.java:40)
+org.apache.curator.framework.recipes.cache.CuratorCacheImpl.lambda$putStorage$7(CuratorCacheImpl.java:279)
+org.apache.curator.framework.listen.MappingListenerManager.lambda$forEach$0(MappingListenerManager.java:92)
+org.apache.curator.framework.listen.MappingListenerManager.forEach(MappingListenerManager.java:89)
+org.apache.curator.framework.listen.StandardListenerManager.forEach(StandardListenerManager.java:89)
+org.apache.curator.framework.recipes.cache.CuratorCacheImpl.lambda$callListeners$10(CuratorCacheImpl.java:293)
+java.util.concurrent.CompletableFuture$AsyncRun.run$$$capture(CompletableFuture.java:1640)
+java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java)
+java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+java.lang.Thread.run(Thread.java:748)
+[INFO ]  2020-09-19 22:30:30,240 --Curator-SafeNotifyService-0-- [org.apache.shardingsphere.elasticjob.lite.internal.instance.TriggerListenerManager] Triggering /foo/instances/192.168.3.233@-@1982250
+[INFO ]  2020-09-19 22:30:30,244 --Curator-SafeNotifyService-0-- [org.quartz.core.QuartzScheduler] Scheduler foo_$_NON_CLUSTERED started.
+[DEBUG]  2020-09-19 22:30:30,244 --schedule-job_QuartzSchedulerThread-- [org.quartz.core.QuartzSchedulerThread] batch acquisition of 1 triggers
+[DEBUG]  2020-09-19 22:30:30,245 --foo_QuartzSchedulerThread-- [org.quartz.core.QuartzSchedulerThread] batch acquisition of 1 triggers
+[DEBUG]  2020-09-19 22:30:30,245 --foo_QuartzSchedulerThread-- [org.quartz.simpl.PropertySettingJobFactory] Producing instance of Job 'DEFAULT.foo', class=org.apache.shardingsphere.elasticjob.lite.internal.schedule.LiteJob
+[DEBUG]  2020-09-19 22:30:30,247 --foo_Worker-1-- [org.quartz.core.JobRunShell] Calling execute on job DEFAULT.foo
+[DEBUG]  2020-09-19 22:30:30,252 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sharding begin.
+[DEBUG]  2020-09-19 22:30:30,275 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sharding complete.
+[INFO ]  2020-09-19 22:30:30,288 --elasticjob-foo-1-- [org.apache.shardingsphere.elasticjob.lite.example.bug.ScheduleSimpleJob$SomeSimpleJob] foo [0] started.
+[INFO ]  2020-09-19 22:30:30,289 --elasticjob-foo-2-- [org.apache.shardingsphere.elasticjob.lite.example.bug.ScheduleSimpleJob$SomeSimpleJob] foo [1] started.
+[INFO ]  2020-09-19 22:30:30,295 --elasticjob-foo-3-- [org.apache.shardingsphere.elasticjob.lite.example.bug.ScheduleSimpleJob$SomeSimpleJob] foo [2] started.
+[INFO ]  2020-09-19 22:30:30,533 --elasticjob-foo-1-- [org.apache.shardingsphere.elasticjob.lite.example.bug.ScheduleSimpleJob$SomeSimpleJob] foo [0] finished. Took 245
+[INFO ]  2020-09-19 22:30:31,988 --elasticjob-foo-2-- [org.apache.shardingsphere.elasticjob.lite.example.bug.ScheduleSimpleJob$SomeSimpleJob] foo [1] finished. Took 1699
+[INFO ]  2020-09-19 22:30:35,166 --elasticjob-foo-3-- [org.apache.shardingsphere.elasticjob.lite.example.bug.ScheduleSimpleJob$SomeSimpleJob] foo [2] finished. Took 4871
+[DEBUG]  2020-09-19 22:30:35,201 --foo_QuartzSchedulerThread-- [org.quartz.core.QuartzSchedulerThread] batch acquisition of 0 triggers
+
+
+[DEBUG]  2020-09-19 22:31:00,002 --schedule-job_QuartzSchedulerThread-- [org.quartz.simpl.PropertySettingJobFactory] Producing instance of Job 'DEFAULT.schedule-job', class=org.apache.shardingsphere.elasticjob.lite.internal.schedule.LiteJob
+[DEBUG]  2020-09-19 22:31:00,003 --schedule-job_Worker-1-- [org.quartz.core.JobRunShell] Calling execute on job DEFAULT.schedule-job
+[INFO ]  2020-09-19 22:31:00,051 --elasticjob-schedule-job-4-- [org.apache.shardingsphere.elasticjob.lite.example.bug.ScheduleSimpleJob] Execute job foo on 0
+[INFO ]  2020-09-19 22:31:00,052 --elasticjob-schedule-job-4-- [org.apache.shardingsphere.elasticjob.lite.api.bootstrap.impl.OneOffJobBootstrap] Write trigger /foo/instances/192.168.3.233@-@1982250
+[INFO ]  2020-09-19 22:31:00,056 --elasticjob-schedule-job-4-- [org.apache.shardingsphere.elasticjob.lite.api.bootstrap.impl.OneOffJobBootstrap] Write finished trigger /foo/instances/192.168.3.233@-@1982250
+[INFO ]  2020-09-19 22:31:00,057 --Curator-SafeNotifyService-0-- [org.apache.shardingsphere.elasticjob.lite.internal.instance.TriggerListenerManager] Triggering /foo/instances/192.168.3.233@-@1982250
+[DEBUG]  2020-09-19 22:31:00,061 --foo_QuartzSchedulerThread-- [org.quartz.core.QuartzSchedulerThread] batch acquisition of 1 triggers
+[DEBUG]  2020-09-19 22:31:00,061 --foo_QuartzSchedulerThread-- [org.quartz.simpl.PropertySettingJobFactory] Producing instance of Job 'DEFAULT.foo', class=org.apache.shardingsphere.elasticjob.lite.internal.schedule.LiteJob
+[DEBUG]  2020-09-19 22:31:00,061 --foo_Worker-1-- [org.quartz.core.JobRunShell] Calling execute on job DEFAULT.foo
+[DEBUG]  2020-09-19 22:31:00,078 --schedule-job_QuartzSchedulerThread-- [org.quartz.core.QuartzSchedulerThread] batch acquisition of 1 triggers
+[INFO ]  2020-09-19 22:31:00,088 --elasticjob-foo-4-- [org.apache.shardingsphere.elasticjob.lite.example.bug.ScheduleSimpleJob$SomeSimpleJob] foo [0] started.
+[INFO ]  2020-09-19 22:31:00,088 --elasticjob-foo-5-- [org.apache.shardingsphere.elasticjob.lite.example.bug.ScheduleSimpleJob$SomeSimpleJob] foo [1] started.
+[INFO ]  2020-09-19 22:31:00,088 --elasticjob-foo-6-- [org.apache.shardingsphere.elasticjob.lite.example.bug.ScheduleSimpleJob$SomeSimpleJob] foo [2] started.
+[INFO ]  2020-09-19 22:31:02,449 --elasticjob-foo-5-- [org.apache.shardingsphere.elasticjob.lite.example.bug.ScheduleSimpleJob$SomeSimpleJob] foo [1] finished. Took 2361
+[INFO ]  2020-09-19 22:31:02,624 --elasticjob-foo-6-- [org.apache.shardingsphere.elasticjob.lite.example.bug.ScheduleSimpleJob$SomeSimpleJob] foo [2] finished. Took 2536
+[INFO ]  2020-09-19 22:31:03,485 --elasticjob-foo-4-- [org.apache.shardingsphere.elasticjob.lite.example.bug.ScheduleSimpleJob$SomeSimpleJob] foo [0] finished. Took 3397
+[DEBUG]  2020-09-19 22:31:03,521 --foo_QuartzSchedulerThread-- [org.quartz.core.QuartzSchedulerThread] batch acquisition of 0 triggers
+[INFO ]  2020-09-19 22:31:16,910 --Curator-SafeNotifyService-0-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingListenerManager] Server changed. Setting resharding NODE_CHANGED /schedule-job/servers/192.168.3.233 ENABLED
+[INFO ]  2020-09-19 22:31:16,910 --Curator-SafeNotifyService-0-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] schedule-job Need resharding
+java.lang.Thread.getStackTrace(Thread.java:1559)
+org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService.setReshardingFlag(ShardingService.java:85)
+org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingListenerManager$ListenServersChangedJobListener.dataChanged(ShardingListenerManager.java:82)
+org.apache.shardingsphere.elasticjob.lite.internal.listener.AbstractJobListener.event(AbstractJobListener.java:40)
+org.apache.curator.framework.recipes.cache.CuratorCacheImpl.lambda$putStorage$6(CuratorCacheImpl.java:274)
+org.apache.curator.framework.listen.MappingListenerManager.lambda$forEach$0(MappingListenerManager.java:92)
+org.apache.curator.framework.listen.MappingListenerManager.forEach(MappingListenerManager.java:89)
+org.apache.curator.framework.listen.StandardListenerManager.forEach(StandardListenerManager.java:89)
+org.apache.curator.framework.recipes.cache.CuratorCacheImpl.lambda$callListeners$10(CuratorCacheImpl.java:293)
+java.util.concurrent.CompletableFuture$AsyncRun.run$$$capture(CompletableFuture.java:1640)
+java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java)
+java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+java.lang.Thread.run(Thread.java:748)
+[INFO ]  2020-09-19 22:31:16,914 --Curator-SafeNotifyService-0-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingListenerManager] Server changed. Setting resharding NODE_CREATED /schedule-job/instances/192.168.3.233@-@1984062
+[INFO ]  2020-09-19 22:31:16,915 --Curator-SafeNotifyService-0-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] schedule-job Need resharding
+java.lang.Thread.getStackTrace(Thread.java:1559)
+org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService.setReshardingFlag(ShardingService.java:85)
+org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingListenerManager$ListenServersChangedJobListener.dataChanged(ShardingListenerManager.java:82)
+org.apache.shardingsphere.elasticjob.lite.internal.listener.AbstractJobListener.event(AbstractJobListener.java:40)
+org.apache.curator.framework.recipes.cache.CuratorCacheImpl.lambda$putStorage$7(CuratorCacheImpl.java:279)
+org.apache.curator.framework.listen.MappingListenerManager.lambda$forEach$0(MappingListenerManager.java:92)
+org.apache.curator.framework.listen.MappingListenerManager.forEach(MappingListenerManager.java:89)
+org.apache.curator.framework.listen.StandardListenerManager.forEach(StandardListenerManager.java:89)
+org.apache.curator.framework.recipes.cache.CuratorCacheImpl.lambda$callListeners$10(CuratorCacheImpl.java:293)
+java.util.concurrent.CompletableFuture$AsyncRun.run$$$capture(CompletableFuture.java:1640)
+java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java)
+java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+java.lang.Thread.run(Thread.java:748)
+[DEBUG]  2020-09-19 22:31:26,773 --foo_QuartzSchedulerThread-- [org.quartz.core.QuartzSchedulerThread] batch acquisition of 0 triggers
+
+
+
+
+
+
+
+[DEBUG]  2020-09-19 22:31:30,002 --schedule-job_QuartzSchedulerThread-- [org.quartz.simpl.PropertySettingJobFactory] Producing instance of Job 'DEFAULT.schedule-job', class=org.apache.shardingsphere.elasticjob.lite.internal.schedule.LiteJob
+[DEBUG]  2020-09-19 22:31:30,002 --schedule-job_Worker-1-- [org.quartz.core.JobRunShell] Calling execute on job DEFAULT.schedule-job
+[DEBUG]  2020-09-19 22:31:30,025 --schedule-job_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'schedule-job' sharding begin.
+[DEBUG]  2020-09-19 22:31:30,051 --schedule-job_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'schedule-job' sharding complete.
+[DEBUG]  2020-09-19 22:31:30,068 --schedule-job_QuartzSchedulerThread-- [org.quartz.core.QuartzSchedulerThread] batch acquisition of 1 triggers
+[INFO ]  2020-09-19 22:31:30,240 --Curator-SafeNotifyService-0-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingListenerManager] Server changed. Setting resharding NODE_CHANGED /foo/servers/192.168.3.233 ENABLED
+[INFO ]  2020-09-19 22:31:30,240 --Curator-SafeNotifyService-0-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] foo Need resharding
+java.lang.Thread.getStackTrace(Thread.java:1559)
+org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService.setReshardingFlag(ShardingService.java:85)
+org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingListenerManager$ListenServersChangedJobListener.dataChanged(ShardingListenerManager.java:82)
+org.apache.shardingsphere.elasticjob.lite.internal.listener.AbstractJobListener.event(AbstractJobListener.java:40)
+org.apache.curator.framework.recipes.cache.CuratorCacheImpl.lambda$putStorage$6(CuratorCacheImpl.java:274)
+org.apache.curator.framework.listen.MappingListenerManager.lambda$forEach$0(MappingListenerManager.java:92)
+org.apache.curator.framework.listen.MappingListenerManager.forEach(MappingListenerManager.java:89)
+org.apache.curator.framework.listen.StandardListenerManager.forEach(StandardListenerManager.java:89)
+org.apache.curator.framework.recipes.cache.CuratorCacheImpl.lambda$callListeners$10(CuratorCacheImpl.java:293)
+java.util.concurrent.CompletableFuture$AsyncRun.run$$$capture(CompletableFuture.java:1640)
+java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java)
+java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+java.lang.Thread.run(Thread.java:748)
+[INFO ]  2020-09-19 22:31:30,243 --Curator-SafeNotifyService-0-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingListenerManager] Server changed. Setting resharding NODE_CREATED /foo/instances/192.168.3.233@-@1984062
+[INFO ]  2020-09-19 22:31:30,243 --Curator-SafeNotifyService-0-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] foo Need resharding
+java.lang.Thread.getStackTrace(Thread.java:1559)
+org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService.setReshardingFlag(ShardingService.java:85)
+org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingListenerManager$ListenServersChangedJobListener.dataChanged(ShardingListenerManager.java:82)
+org.apache.shardingsphere.elasticjob.lite.internal.listener.AbstractJobListener.event(AbstractJobListener.java:40)
+org.apache.curator.framework.recipes.cache.CuratorCacheImpl.lambda$putStorage$7(CuratorCacheImpl.java:279)
+org.apache.curator.framework.listen.MappingListenerManager.lambda$forEach$0(MappingListenerManager.java:92)
+org.apache.curator.framework.listen.MappingListenerManager.forEach(MappingListenerManager.java:89)
+org.apache.curator.framework.listen.StandardListenerManager.forEach(StandardListenerManager.java:89)
+org.apache.curator.framework.recipes.cache.CuratorCacheImpl.lambda$callListeners$10(CuratorCacheImpl.java:293)
+java.util.concurrent.CompletableFuture$AsyncRun.run$$$capture(CompletableFuture.java:1640)
+java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java)
+java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+java.lang.Thread.run(Thread.java:748)
+[INFO ]  2020-09-19 22:31:30,248 --Curator-SafeNotifyService-0-- [org.apache.shardingsphere.elasticjob.lite.internal.instance.TriggerListenerManager] Triggering /foo/instances/192.168.3.233@-@1982250
+[DEBUG]  2020-09-19 22:31:30,251 --foo_QuartzSchedulerThread-- [org.quartz.core.QuartzSchedulerThread] batch acquisition of 1 triggers
+[DEBUG]  2020-09-19 22:31:30,251 --foo_QuartzSchedulerThread-- [org.quartz.simpl.PropertySettingJobFactory] Producing instance of Job 'DEFAULT.foo', class=org.apache.shardingsphere.elasticjob.lite.internal.schedule.LiteJob
+[DEBUG]  2020-09-19 22:31:30,252 --foo_Worker-1-- [org.quartz.core.JobRunShell] Calling execute on job DEFAULT.foo
+[DEBUG]  2020-09-19 22:31:30,258 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sharding begin.
+
+[DEBUG]  2020-09-19 22:31:30,276 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sharding complete.
+
+[INFO ]  2020-09-19 22:31:30,282 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.example.bug.ScheduleSimpleJob$SomeSimpleJob] foo [1] started.
+[INFO ]  2020-09-19 22:31:32,389 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.example.bug.ScheduleSimpleJob$SomeSimpleJob] foo [1] finished. Took 2107
+[DEBUG]  2020-09-19 22:31:32,401 --foo_QuartzSchedulerThread-- [org.quartz.core.QuartzSchedulerThread] batch acquisition of 0 triggers
+[DEBUG]  2020-09-19 22:32:00,003 --schedule-job_QuartzSchedulerThread-- [org.quartz.simpl.PropertySettingJobFactory] Producing instance of Job 'DEFAULT.schedule-job', class=org.apache.shardingsphere.elasticjob.lite.internal.schedule.LiteJob
+[DEBUG]  2020-09-19 22:32:00,004 --schedule-job_Worker-1-- [org.quartz.core.JobRunShell] Calling execute on job DEFAULT.schedule-job
+[DEBUG]  2020-09-19 22:32:00,047 --schedule-job_QuartzSchedulerThread-- [org.quartz.core.QuartzSchedulerThread] batch acquisition of 1 triggers
+[INFO ]  2020-09-19 22:32:00,064 --Curator-SafeNotifyService-0-- [org.apache.shardingsphere.elasticjob.lite.internal.instance.TriggerListenerManager] Triggering /foo/instances/192.168.3.233@-@1982250
+[DEBUG]  2020-09-19 22:32:00,073 --foo_QuartzSchedulerThread-- [org.quartz.core.QuartzSchedulerThread] batch acquisition of 1 triggers
+[DEBUG]  2020-09-19 22:32:00,073 --foo_QuartzSchedulerThread-- [org.quartz.simpl.PropertySettingJobFactory] Producing instance of Job 'DEFAULT.foo', class=org.apache.shardingsphere.elasticjob.lite.internal.schedule.LiteJob
+[DEBUG]  2020-09-19 22:32:00,073 --foo_Worker-1-- [org.quartz.core.JobRunShell] Calling execute on job DEFAULT.foo
+[DEBUG]  2020-09-19 22:32:00,078 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sharding begin.
+[DEBUG]  2020-09-19 22:32:00,100 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sharding complete.
+[INFO ]  2020-09-19 22:32:00,108 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.example.bug.ScheduleSimpleJob$SomeSimpleJob] foo [1] started.
+[INFO ]  2020-09-19 22:32:03,928 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.example.bug.ScheduleSimpleJob$SomeSimpleJob] foo [1] finished. Took 3820
+[DEBUG]  2020-09-19 22:32:03,950 --foo_QuartzSchedulerThread-- [org.quartz.core.QuartzSchedulerThread] batch acquisition of 0 triggers
+Disconnected from the target VM, address: '127.0.0.1:43873', transport: 'socket'
+[INFO ]  2020-09-19 22:32:07,455 --Quartz Shutdown-Hook foo-- [org.apache.shardingsphere.elasticjob.lite.internal.schedule.JobShutdownHookPlugin] Shutting down Quartz... foo
+[INFO ]  2020-09-19 22:32:07,455 --Quartz Shutdown-Hook schedule-job-- [org.apache.shardingsphere.elasticjob.lite.internal.schedule.JobShutdownHookPlugin] Shutting down Quartz... schedule-job
+[INFO ]  2020-09-19 22:32:07,456 --Quartz Shutdown-Hook schedule-job-- [org.quartz.core.QuartzScheduler] Scheduler schedule-job_$_NON_CLUSTERED shutting down.
+[INFO ]  2020-09-19 22:32:07,456 --Quartz Shutdown-Hook foo-- [org.quartz.core.QuartzScheduler] Scheduler foo_$_NON_CLUSTERED shutting down.
+[INFO ]  2020-09-19 22:32:07,456 --Quartz Shutdown-Hook schedule-job-- [org.quartz.core.QuartzScheduler] Scheduler schedule-job_$_NON_CLUSTERED paused.
+[INFO ]  2020-09-19 22:32:07,456 --Quartz Shutdown-Hook foo-- [org.quartz.core.QuartzScheduler] Scheduler foo_$_NON_CLUSTERED paused.
+[DEBUG]  2020-09-19 22:32:07,456 --Quartz Shutdown-Hook foo-- [org.quartz.simpl.SimpleThreadPool] Shutting down threadpool...
+[DEBUG]  2020-09-19 22:32:07,456 --Quartz Shutdown-Hook schedule-job-- [org.quartz.simpl.SimpleThreadPool] Shutting down threadpool...
+[DEBUG]  2020-09-19 22:32:07,549 --schedule-job_Worker-1-- [org.quartz.simpl.SimpleThreadPool] WorkerThread is shut down.
+[DEBUG]  2020-09-19 22:32:07,549 --Quartz Shutdown-Hook schedule-job-- [org.quartz.simpl.SimpleThreadPool] No executing jobs remaining, all threads stopped.
+[DEBUG]  2020-09-19 22:32:07,549 --Quartz Shutdown-Hook schedule-job-- [org.quartz.simpl.SimpleThreadPool] Shutdown of threadpool complete.
+[DEBUG]  2020-09-19 22:32:07,553 --Curator-SafeNotifyService-0-- [org.apache.shardingsphere.elasticjob.reg.exception.RegExceptionHandler] Elastic job: ignored exception for: KeeperErrorCode = NoNode for /reproduce/schedule-job/leader/election/instance
+[INFO ]  2020-09-19 22:32:07,555 --Quartz Shutdown-Hook schedule-job-- [org.quartz.core.QuartzScheduler] Scheduler schedule-job_$_NON_CLUSTERED shutdown complete.
+[DEBUG]  2020-09-19 22:32:07,556 --Curator-SafeNotifyService-0-- [org.apache.shardingsphere.elasticjob.lite.internal.election.LeaderService] Elect a new leader now.
+
+Process finished with exit code 137 (interrupted by signal 9: SIGKILL)

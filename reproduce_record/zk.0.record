@@ -1,0 +1,432 @@
+[zk: zk36.zk.svc.cluster.local:2181(CONNECTED) 4]
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/schedule-job/leader/sharding/processing
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/schedule-job/sharding
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/schedule-job/sharding/0
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/schedule-job/sharding/1
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/schedule-job/sharding/2
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/schedule-job/sharding/0/instance
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/schedule-job/sharding/1/instance
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/schedule-job/sharding/2/instance
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeDeleted path:/reproduce/schedule-job/leader/sharding/necessary
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeDeleted path:/reproduce/schedule-job/leader/sharding/processing
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/schedule-job/sharding/0/running
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/schedule-job/sharding/1/running
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/schedule-job/sharding/2/running
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/foo
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/foo/config
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeDataChanged path:/reproduce/foo
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/foo/leader
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/foo/leader/election
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/foo/leader/election/latch
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/foo/leader/election/latch/_c_fe36410b-40d4-4f26-b537-8bc5d2ca8229-latch-0000000000
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/foo/leader/election/instance
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeDeleted path:/reproduce/foo/leader/election/latch/_c_fe36410b-40d4-4f26-b537-8bc5d2ca8229-latch-0000000000
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/foo/servers
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/foo/servers/192.168.3.233
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/foo/instances
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/foo/instances/192.168.3.233@-@1982250
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeDataChanged path:/reproduce/foo/instances/192.168.3.233@-@1982250
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/foo/leader/sharding
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/foo/leader/sharding/necessary
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeDeleted path:/reproduce/schedule-job/sharding/0/running
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeDeleted path:/reproduce/schedule-job/sharding/1/running
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeDeleted path:/reproduce/schedule-job/sharding/2/running
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeDataChanged path:/reproduce/foo/instances/192.168.3.233@-@1982250
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/foo/leader/sharding/processing
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/foo/sharding
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/foo/sharding/0
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/foo/sharding/1
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/foo/sharding/2
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/foo/sharding/0/instance
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/foo/sharding/1/instance
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/foo/sharding/2/instance
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeDeleted path:/reproduce/foo/leader/sharding/necessary
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeDeleted path:/reproduce/foo/leader/sharding/processing
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/foo/sharding/0/running
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/foo/sharding/1/running
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/foo/sharding/2/running
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeDeleted path:/reproduce/foo/sharding/0/running
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeDeleted path:/reproduce/foo/sharding/1/running
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeDeleted path:/reproduce/foo/sharding/2/running
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeDeleted path:/reproduce/schedule-job/leader/election/latch
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeDeleted path:/reproduce/foo/leader/election/latch
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/schedule-job/sharding/0/running
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/schedule-job/sharding/1/running
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/schedule-job/sharding/2/running
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeDataChanged path:/reproduce/foo/instances/192.168.3.233@-@1982250
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeDataChanged path:/reproduce/foo/instances/192.168.3.233@-@1982250
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeDeleted path:/reproduce/schedule-job/sharding/0/running
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeDeleted path:/reproduce/schedule-job/sharding/1/running
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeDeleted path:/reproduce/schedule-job/sharding/2/running
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/foo/sharding/0/running
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/foo/sharding/1/running
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/foo/sharding/2/running
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeDeleted path:/reproduce/foo/sharding/0/running
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeDeleted path:/reproduce/foo/sharding/1/running
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeDeleted path:/reproduce/foo/sharding/2/running
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/schedule-job/leader/sharding/necessary
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/schedule-job/leader/election/latch
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/schedule-job/leader/election/latch/_c_ed24e519-bc5e-4b96-b7a7-2c1cd60e2aed-latch-0000000000
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeDeleted path:/reproduce/schedule-job/leader/election/latch/_c_ed24e519-bc5e-4b96-b7a7-2c1cd60e2aed-latch-0000000000
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeDataChanged path:/reproduce/schedule-job/servers/192.168.3.233
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/schedule-job/instances/192.168.3.233@-@1984062
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/schedule-job/leader/sharding/processing
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeDeleted path:/reproduce/schedule-job/sharding/0/instance
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeDeleted path:/reproduce/schedule-job/sharding/1/instance
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeDeleted path:/reproduce/schedule-job/sharding/2/instance
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/schedule-job/sharding/0/instance
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/schedule-job/sharding/2/instance
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/schedule-job/sharding/1/instance
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeDeleted path:/reproduce/schedule-job/leader/sharding/necessary
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeDeleted path:/reproduce/schedule-job/leader/sharding/processing
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/schedule-job/sharding/1/running
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeDeleted path:/reproduce/schedule-job/sharding/1/running
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/schedule-job/sharding/0/running
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/schedule-job/sharding/2/running
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/foo/leader/election/latch
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/foo/leader/election/latch/_c_7b42cb45-20c2-4a1b-83b6-19dfe37aa9ac-latch-0000000000
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeDeleted path:/reproduce/foo/leader/election/latch/_c_7b42cb45-20c2-4a1b-83b6-19dfe37aa9ac-latch-0000000000
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeDataChanged path:/reproduce/foo/servers/192.168.3.233
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/foo/instances/192.168.3.233@-@1984062
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/foo/leader/sharding/necessary
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeDataChanged path:/reproduce/foo/instances/192.168.3.233@-@1984062
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeDataChanged path:/reproduce/foo/instances/192.168.3.233@-@1982250
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeDataChanged path:/reproduce/foo/instances/192.168.3.233@-@1982250
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeDeleted path:/reproduce/schedule-job/sharding/0/running
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeDeleted path:/reproduce/schedule-job/sharding/2/running
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/foo/leader/sharding/processing
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeDeleted path:/reproduce/foo/sharding/0/instance
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeDeleted path:/reproduce/foo/sharding/1/instance
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeDeleted path:/reproduce/foo/sharding/2/instance
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/foo/sharding/0/instance
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/foo/sharding/2/instance
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/foo/sharding/1/instance
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeDeleted path:/reproduce/foo/leader/sharding/necessary
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeDeleted path:/reproduce/foo/leader/sharding/processing
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/foo/sharding/1/running
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeCreated path:/reproduce/foo/leader/sharding/necessary
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeDataChanged path:/reproduce/foo/instances/192.168.3.233@-@1984062
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeDeleted path:/reproduce/foo/sharding/1/running

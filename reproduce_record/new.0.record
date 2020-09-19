@@ -1,0 +1,542 @@
+Connected to the target VM, address: '127.0.0.1:57863', transport: 'socket'
+[DEBUG]  2020-09-19 22:31:11,625 --main-- [org.apache.shardingsphere.elasticjob.reg.zookeeper.ZookeeperRegistryCenter] Elastic job: zookeeper registry center init, server lists is: 10.108.179.62:2181.
+[INFO ]  2020-09-19 22:31:16,812 --main-- [org.quartz.impl.StdSchedulerFactory] Using default implementation for ThreadExecutor
+[INFO ]  2020-09-19 22:31:16,823 --main-- [org.quartz.core.SchedulerSignalerImpl] Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[INFO ]  2020-09-19 22:31:16,823 --main-- [org.quartz.core.QuartzScheduler] Quartz Scheduler v.2.3.2 created.
+[INFO ]  2020-09-19 22:31:16,824 --main-- [org.apache.shardingsphere.elasticjob.lite.internal.schedule.JobShutdownHookPlugin] Registering Quartz shutdown hook. schedule-job
+[INFO ]  2020-09-19 22:31:16,824 --main-- [org.quartz.simpl.RAMJobStore] RAMJobStore initialized.
+[INFO ]  2020-09-19 22:31:16,824 --main-- [org.quartz.core.QuartzScheduler] Scheduler meta-data: Quartz Scheduler (v2.3.2) 'schedule-job' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 1 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[INFO ]  2020-09-19 22:31:16,824 --main-- [org.quartz.impl.StdSchedulerFactory] Quartz scheduler 'schedule-job' initialized from an externally provided properties instance.
+[INFO ]  2020-09-19 22:31:16,824 --main-- [org.quartz.impl.StdSchedulerFactory] Quartz scheduler version: 2.3.2
+[INFO ]  2020-09-19 22:31:16,844 --main-- [org.apache.shardingsphere.elasticjob.lite.internal.listener.ListenerManager] Starting listeners for schedule-job
+[INFO ]  2020-09-19 22:31:16,848 --main-- [org.apache.shardingsphere.elasticjob.lite.internal.listener.ListenerManager] Listeners started for schedule-job
+[DEBUG]  2020-09-19 22:31:16,848 --main-- [org.apache.shardingsphere.elasticjob.lite.internal.election.LeaderService] Elect a new leader now.
+[INFO ]  2020-09-19 22:31:16,866 --Curator-SafeNotifyService-0-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingListenerManager] Server changed. Setting resharding NODE_CREATED /schedule-job/instances
+[INFO ]  2020-09-19 22:31:16,869 --Curator-SafeNotifyService-0-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] schedule-job Need resharding
+java.lang.Thread.getStackTrace(Thread.java:1559)
+org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService.setReshardingFlag(ShardingService.java:85)
+org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingListenerManager$ListenServersChangedJobListener.dataChanged(ShardingListenerManager.java:82)
+org.apache.shardingsphere.elasticjob.lite.internal.listener.AbstractJobListener.event(AbstractJobListener.java:40)
+org.apache.curator.framework.recipes.cache.CuratorCacheImpl.lambda$putStorage$7(CuratorCacheImpl.java:279)
+org.apache.curator.framework.listen.MappingListenerManager.lambda$forEach$0(MappingListenerManager.java:92)
+org.apache.curator.framework.listen.MappingListenerManager.forEach(MappingListenerManager.java:89)
+org.apache.curator.framework.listen.StandardListenerManager.forEach(StandardListenerManager.java:89)
+org.apache.curator.framework.recipes.cache.CuratorCacheImpl.lambda$callListeners$10(CuratorCacheImpl.java:293)
+java.util.concurrent.CompletableFuture$AsyncRun.run$$$capture(CompletableFuture.java:1640)
+java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java)
+java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+java.lang.Thread.run(Thread.java:748)
+[INFO ]  2020-09-19 22:31:16,889 --Curator-SafeNotifyService-0-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingListenerManager] Server changed. Setting resharding NODE_CREATED /schedule-job/servers/192.168.3.233 ENABLED
+[INFO ]  2020-09-19 22:31:16,889 --Curator-SafeNotifyService-0-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] schedule-job Need resharding
+java.lang.Thread.getStackTrace(Thread.java:1559)
+org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService.setReshardingFlag(ShardingService.java:85)
+org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingListenerManager$ListenServersChangedJobListener.dataChanged(ShardingListenerManager.java:82)
+org.apache.shardingsphere.elasticjob.lite.internal.listener.AbstractJobListener.event(AbstractJobListener.java:40)
+org.apache.curator.framework.recipes.cache.CuratorCacheImpl.lambda$putStorage$7(CuratorCacheImpl.java:279)
+org.apache.curator.framework.listen.MappingListenerManager.lambda$forEach$0(MappingListenerManager.java:92)
+org.apache.curator.framework.listen.MappingListenerManager.forEach(MappingListenerManager.java:89)
+org.apache.curator.framework.listen.StandardListenerManager.forEach(StandardListenerManager.java:89)
+org.apache.curator.framework.recipes.cache.CuratorCacheImpl.lambda$callListeners$10(CuratorCacheImpl.java:293)
+java.util.concurrent.CompletableFuture$AsyncRun.run$$$capture(CompletableFuture.java:1640)
+java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java)
+java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+java.lang.Thread.run(Thread.java:748)
+[INFO ]  2020-09-19 22:31:16,892 --Curator-SafeNotifyService-0-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingListenerManager] Server changed. Setting resharding NODE_CREATED /schedule-job/instances/192.168.3.233@-@1982250
+[INFO ]  2020-09-19 22:31:16,892 --Curator-SafeNotifyService-0-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] schedule-job Need resharding
+java.lang.Thread.getStackTrace(Thread.java:1559)
+org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService.setReshardingFlag(ShardingService.java:85)
+org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingListenerManager$ListenServersChangedJobListener.dataChanged(ShardingListenerManager.java:82)
+org.apache.shardingsphere.elasticjob.lite.internal.listener.AbstractJobListener.event(AbstractJobListener.java:40)
+org.apache.curator.framework.recipes.cache.CuratorCacheImpl.lambda$putStorage$7(CuratorCacheImpl.java:279)
+org.apache.curator.framework.listen.MappingListenerManager.lambda$forEach$0(MappingListenerManager.java:92)
+org.apache.curator.framework.listen.MappingListenerManager.forEach(MappingListenerManager.java:89)
+org.apache.curator.framework.listen.StandardListenerManager.forEach(StandardListenerManager.java:89)
+org.apache.curator.framework.recipes.cache.CuratorCacheImpl.lambda$callListeners$10(CuratorCacheImpl.java:293)
+java.util.concurrent.CompletableFuture$AsyncRun.run$$$capture(CompletableFuture.java:1640)
+java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java)
+java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+java.lang.Thread.run(Thread.java:748)
+[DEBUG]  2020-09-19 22:31:16,894 --main-- [org.apache.shardingsphere.elasticjob.lite.internal.election.LeaderService] Leader election completed.
+[INFO ]  2020-09-19 22:31:16,923 --Curator-SafeNotifyService-0-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingListenerManager] Server changed. Setting resharding NODE_CHANGED /schedule-job/servers/192.168.3.233 ENABLED
+[INFO ]  2020-09-19 22:31:16,923 --Curator-SafeNotifyService-0-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] schedule-job Need resharding
+java.lang.Thread.getStackTrace(Thread.java:1559)
+org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService.setReshardingFlag(ShardingService.java:85)
+org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingListenerManager$ListenServersChangedJobListener.dataChanged(ShardingListenerManager.java:82)
+org.apache.shardingsphere.elasticjob.lite.internal.listener.AbstractJobListener.event(AbstractJobListener.java:40)
+org.apache.curator.framework.recipes.cache.CuratorCacheImpl.lambda$putStorage$6(CuratorCacheImpl.java:274)
+org.apache.curator.framework.listen.MappingListenerManager.lambda$forEach$0(MappingListenerManager.java:92)
+org.apache.curator.framework.listen.MappingListenerManager.forEach(MappingListenerManager.java:89)
+org.apache.curator.framework.listen.StandardListenerManager.forEach(StandardListenerManager.java:89)
+org.apache.curator.framework.recipes.cache.CuratorCacheImpl.lambda$callListeners$10(CuratorCacheImpl.java:293)
+java.util.concurrent.CompletableFuture$AsyncRun.run$$$capture(CompletableFuture.java:1640)
+java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java)
+java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+java.lang.Thread.run(Thread.java:748)
+[INFO ]  2020-09-19 22:31:16,925 --Curator-SafeNotifyService-0-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingListenerManager] Server changed. Setting resharding NODE_CREATED /schedule-job/instances/192.168.3.233@-@1984062
+[INFO ]  2020-09-19 22:31:16,926 --Curator-SafeNotifyService-0-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] schedule-job Need resharding
+java.lang.Thread.getStackTrace(Thread.java:1559)
+org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService.setReshardingFlag(ShardingService.java:85)
+org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingListenerManager$ListenServersChangedJobListener.dataChanged(ShardingListenerManager.java:82)
+org.apache.shardingsphere.elasticjob.lite.internal.listener.AbstractJobListener.event(AbstractJobListener.java:40)
+org.apache.curator.framework.recipes.cache.CuratorCacheImpl.lambda$putStorage$7(CuratorCacheImpl.java:279)
+org.apache.curator.framework.listen.MappingListenerManager.lambda$forEach$0(MappingListenerManager.java:92)
+org.apache.curator.framework.listen.MappingListenerManager.forEach(MappingListenerManager.java:89)
+org.apache.curator.framework.listen.StandardListenerManager.forEach(StandardListenerManager.java:89)
+org.apache.curator.framework.recipes.cache.CuratorCacheImpl.lambda$callListeners$10(CuratorCacheImpl.java:293)
+java.util.concurrent.CompletableFuture$AsyncRun.run$$$capture(CompletableFuture.java:1640)
+java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java)
+java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+java.lang.Thread.run(Thread.java:748)
+[INFO ]  2020-09-19 22:31:16,928 --main-- [org.quartz.core.QuartzScheduler] Scheduler schedule-job_$_NON_CLUSTERED started.
+[DEBUG]  2020-09-19 22:31:16,929 --schedule-job_QuartzSchedulerThread-- [org.quartz.core.QuartzSchedulerThread] batch acquisition of 1 triggers
+
+
+[DEBUG]  2020-09-19 22:31:30,013 --schedule-job_QuartzSchedulerThread-- [org.quartz.simpl.PropertySettingJobFactory] Producing instance of Job 'DEFAULT.schedule-job', class=org.apache.shardingsphere.elasticjob.lite.internal.schedule.LiteJob
+[DEBUG]  2020-09-19 22:31:30,032 --schedule-job_Worker-1-- [org.quartz.core.JobRunShell] Calling execute on job DEFAULT.schedule-job
+[DEBUG]  2020-09-19 22:31:30,047 --schedule-job_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'schedule-job' sleep short time until sharding completed.
+[INFO ]  2020-09-19 22:31:30,211 --elasticjob-schedule-job-2-- [org.quartz.impl.StdSchedulerFactory] Using default implementation for ThreadExecutor
+[INFO ]  2020-09-19 22:31:30,212 --elasticjob-schedule-job-2-- [org.quartz.core.SchedulerSignalerImpl] Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[INFO ]  2020-09-19 22:31:30,212 --elasticjob-schedule-job-2-- [org.quartz.core.QuartzScheduler] Quartz Scheduler v.2.3.2 created.
+[INFO ]  2020-09-19 22:31:30,212 --elasticjob-schedule-job-2-- [org.apache.shardingsphere.elasticjob.lite.internal.schedule.JobShutdownHookPlugin] Registering Quartz shutdown hook. foo
+[INFO ]  2020-09-19 22:31:30,212 --elasticjob-schedule-job-2-- [org.quartz.simpl.RAMJobStore] RAMJobStore initialized.
+[INFO ]  2020-09-19 22:31:30,212 --elasticjob-schedule-job-2-- [org.quartz.core.QuartzScheduler] Scheduler meta-data: Quartz Scheduler (v2.3.2) 'foo' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 1 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[INFO ]  2020-09-19 22:31:30,212 --elasticjob-schedule-job-2-- [org.quartz.impl.StdSchedulerFactory] Quartz scheduler 'foo' initialized from an externally provided properties instance.
+[INFO ]  2020-09-19 22:31:30,212 --elasticjob-schedule-job-2-- [org.quartz.impl.StdSchedulerFactory] Quartz scheduler version: 2.3.2
+[INFO ]  2020-09-19 22:31:30,212 --elasticjob-schedule-job-2-- [org.apache.shardingsphere.elasticjob.lite.internal.listener.ListenerManager] Starting listeners for foo
+[INFO ]  2020-09-19 22:31:30,212 --elasticjob-schedule-job-2-- [org.apache.shardingsphere.elasticjob.lite.internal.listener.ListenerManager] Listeners started for foo
+[DEBUG]  2020-09-19 22:31:30,212 --elasticjob-schedule-job-2-- [org.apache.shardingsphere.elasticjob.lite.internal.election.LeaderService] Elect a new leader now.
+[DEBUG]  2020-09-19 22:31:30,226 --elasticjob-schedule-job-2-- [org.apache.shardingsphere.elasticjob.lite.internal.election.LeaderService] Leader election completed.
+[INFO ]  2020-09-19 22:31:30,228 --Curator-SafeNotifyService-0-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingListenerManager] Server changed. Setting resharding NODE_CREATED /foo/instances
+[INFO ]  2020-09-19 22:31:30,229 --Curator-SafeNotifyService-0-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] foo Need resharding
+java.lang.Thread.getStackTrace(Thread.java:1559)
+org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService.setReshardingFlag(ShardingService.java:85)
+org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingListenerManager$ListenServersChangedJobListener.dataChanged(ShardingListenerManager.java:82)
+org.apache.shardingsphere.elasticjob.lite.internal.listener.AbstractJobListener.event(AbstractJobListener.java:40)
+org.apache.curator.framework.recipes.cache.CuratorCacheImpl.lambda$putStorage$7(CuratorCacheImpl.java:279)
+org.apache.curator.framework.listen.MappingListenerManager.lambda$forEach$0(MappingListenerManager.java:92)
+org.apache.curator.framework.listen.MappingListenerManager.forEach(MappingListenerManager.java:89)
+org.apache.curator.framework.listen.StandardListenerManager.forEach(StandardListenerManager.java:89)
+org.apache.curator.framework.recipes.cache.CuratorCacheImpl.lambda$callListeners$10(CuratorCacheImpl.java:293)
+java.util.concurrent.CompletableFuture$AsyncRun.run$$$capture(CompletableFuture.java:1640)
+java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java)
+java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+java.lang.Thread.run(Thread.java:748)
+[INFO ]  2020-09-19 22:31:30,237 --elasticjob-schedule-job-1-- [org.apache.shardingsphere.elasticjob.lite.example.bug.ScheduleSimpleJob] Execute job foo on 0
+[INFO ]  2020-09-19 22:31:30,240 --elasticjob-schedule-job-1-- [org.apache.shardingsphere.elasticjob.lite.api.bootstrap.impl.OneOffJobBootstrap] Write trigger /foo/instances/192.168.3.233@-@1984062
+[INFO ]  2020-09-19 22:31:30,243 --elasticjob-schedule-job-1-- [org.apache.shardingsphere.elasticjob.lite.api.bootstrap.impl.OneOffJobBootstrap] Write finished trigger /foo/instances/192.168.3.233@-@1984062
+[INFO ]  2020-09-19 22:31:30,243 --elasticjob-schedule-job-1-- [org.apache.shardingsphere.elasticjob.lite.api.bootstrap.impl.OneOffJobBootstrap] Write trigger /foo/instances/192.168.3.233@-@1982250
+[INFO ]  2020-09-19 22:31:30,246 --elasticjob-schedule-job-1-- [org.apache.shardingsphere.elasticjob.lite.api.bootstrap.impl.OneOffJobBootstrap] Write finished trigger /foo/instances/192.168.3.233@-@1982250
+[INFO ]  2020-09-19 22:31:30,254 --Curator-SafeNotifyService-0-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingListenerManager] Server changed. Setting resharding NODE_CREATED /foo/servers/192.168.3.233 ENABLED
+[INFO ]  2020-09-19 22:31:30,254 --Curator-SafeNotifyService-0-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] foo Need resharding
+java.lang.Thread.getStackTrace(Thread.java:1559)
+org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService.setReshardingFlag(ShardingService.java:85)
+org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingListenerManager$ListenServersChangedJobListener.dataChanged(ShardingListenerManager.java:82)
+org.apache.shardingsphere.elasticjob.lite.internal.listener.AbstractJobListener.event(AbstractJobListener.java:40)
+org.apache.curator.framework.recipes.cache.CuratorCacheImpl.lambda$putStorage$7(CuratorCacheImpl.java:279)
+org.apache.curator.framework.listen.MappingListenerManager.lambda$forEach$0(MappingListenerManager.java:92)
+org.apache.curator.framework.listen.MappingListenerManager.forEach(MappingListenerManager.java:89)
+org.apache.curator.framework.listen.StandardListenerManager.forEach(StandardListenerManager.java:89)
+org.apache.curator.framework.recipes.cache.CuratorCacheImpl.lambda$callListeners$10(CuratorCacheImpl.java:293)
+java.util.concurrent.CompletableFuture$AsyncRun.run$$$capture(CompletableFuture.java:1640)
+java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java)
+java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+java.lang.Thread.run(Thread.java:748)
+[INFO ]  2020-09-19 22:31:30,258 --Curator-SafeNotifyService-0-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingListenerManager] Server changed. Setting resharding NODE_CREATED /foo/instances/192.168.3.233@-@1982250
+[INFO ]  2020-09-19 22:31:30,259 --Curator-SafeNotifyService-0-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] foo Need resharding
+java.lang.Thread.getStackTrace(Thread.java:1559)
+org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService.setReshardingFlag(ShardingService.java:85)
+org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingListenerManager$ListenServersChangedJobListener.dataChanged(ShardingListenerManager.java:82)
+org.apache.shardingsphere.elasticjob.lite.internal.listener.AbstractJobListener.event(AbstractJobListener.java:40)
+org.apache.curator.framework.recipes.cache.CuratorCacheImpl.lambda$putStorage$7(CuratorCacheImpl.java:279)
+org.apache.curator.framework.listen.MappingListenerManager.lambda$forEach$0(MappingListenerManager.java:92)
+org.apache.curator.framework.listen.MappingListenerManager.forEach(MappingListenerManager.java:89)
+org.apache.curator.framework.listen.StandardListenerManager.forEach(StandardListenerManager.java:89)
+org.apache.curator.framework.recipes.cache.CuratorCacheImpl.lambda$callListeners$10(CuratorCacheImpl.java:293)
+java.util.concurrent.CompletableFuture$AsyncRun.run$$$capture(CompletableFuture.java:1640)
+java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java)
+java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+java.lang.Thread.run(Thread.java:748)
+[DEBUG]  2020-09-19 22:31:30,263 --schedule-job_QuartzSchedulerThread-- [org.quartz.core.QuartzSchedulerThread] batch acquisition of 1 triggers
+[INFO ]  2020-09-19 22:31:30,287 --Curator-SafeNotifyService-0-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingListenerManager] Server changed. Setting resharding NODE_CHANGED /foo/servers/192.168.3.233 ENABLED
+[INFO ]  2020-09-19 22:31:30,287 --Curator-SafeNotifyService-0-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] foo Need resharding
+java.lang.Thread.getStackTrace(Thread.java:1559)
+org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService.setReshardingFlag(ShardingService.java:85)
+org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingListenerManager$ListenServersChangedJobListener.dataChanged(ShardingListenerManager.java:82)
+org.apache.shardingsphere.elasticjob.lite.internal.listener.AbstractJobListener.event(AbstractJobListener.java:40)
+org.apache.curator.framework.recipes.cache.CuratorCacheImpl.lambda$putStorage$6(CuratorCacheImpl.java:274)
+org.apache.curator.framework.listen.MappingListenerManager.lambda$forEach$0(MappingListenerManager.java:92)
+org.apache.curator.framework.listen.MappingListenerManager.forEach(MappingListenerManager.java:89)
+org.apache.curator.framework.listen.StandardListenerManager.forEach(StandardListenerManager.java:89)
+org.apache.curator.framework.recipes.cache.CuratorCacheImpl.lambda$callListeners$10(CuratorCacheImpl.java:293)
+java.util.concurrent.CompletableFuture$AsyncRun.run$$$capture(CompletableFuture.java:1640)
+java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java)
+java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+java.lang.Thread.run(Thread.java:748)
+[INFO ]  2020-09-19 22:31:30,292 --Curator-SafeNotifyService-0-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingListenerManager] Server changed. Setting resharding NODE_CREATED /foo/instances/192.168.3.233@-@1984062
+[INFO ]  2020-09-19 22:31:30,292 --Curator-SafeNotifyService-0-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] foo Need resharding
+java.lang.Thread.getStackTrace(Thread.java:1559)
+org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService.setReshardingFlag(ShardingService.java:85)
+org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingListenerManager$ListenServersChangedJobListener.dataChanged(ShardingListenerManager.java:82)
+org.apache.shardingsphere.elasticjob.lite.internal.listener.AbstractJobListener.event(AbstractJobListener.java:40)
+org.apache.curator.framework.recipes.cache.CuratorCacheImpl.lambda$putStorage$7(CuratorCacheImpl.java:279)
+org.apache.curator.framework.listen.MappingListenerManager.lambda$forEach$0(MappingListenerManager.java:92)
+org.apache.curator.framework.listen.MappingListenerManager.forEach(MappingListenerManager.java:89)
+org.apache.curator.framework.listen.StandardListenerManager.forEach(StandardListenerManager.java:89)
+org.apache.curator.framework.recipes.cache.CuratorCacheImpl.lambda$callListeners$10(CuratorCacheImpl.java:293)
+java.util.concurrent.CompletableFuture$AsyncRun.run$$$capture(CompletableFuture.java:1640)
+java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java)
+java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+java.lang.Thread.run(Thread.java:748)
+[INFO ]  2020-09-19 22:31:30,295 --Curator-SafeNotifyService-0-- [org.apache.shardingsphere.elasticjob.lite.internal.instance.TriggerListenerManager] Triggering /foo/instances/192.168.3.233@-@1984062
+[INFO ]  2020-09-19 22:31:30,300 --Curator-SafeNotifyService-0-- [org.quartz.core.QuartzScheduler] Scheduler foo_$_NON_CLUSTERED started.
+[DEBUG]  2020-09-19 22:31:30,300 --foo_QuartzSchedulerThread-- [org.quartz.core.QuartzSchedulerThread] batch acquisition of 1 triggers
+[DEBUG]  2020-09-19 22:31:30,300 --foo_QuartzSchedulerThread-- [org.quartz.simpl.PropertySettingJobFactory] Producing instance of Job 'DEFAULT.foo', class=org.apache.shardingsphere.elasticjob.lite.internal.schedule.LiteJob
+[DEBUG]  2020-09-19 22:31:30,302 --foo_Worker-1-- [org.quartz.core.JobRunShell] Calling execute on job DEFAULT.foo
+[DEBUG]  2020-09-19 22:31:30,305 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:30,406 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:30,507 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:30,608 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:30,710 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:30,814 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:30,918 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:31,019 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:31,122 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:31,226 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:31,330 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:31,431 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:31,532 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:31,636 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:31,740 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:31,843 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:31,947 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:32,051 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:32,155 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:32,259 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:32,362 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:32,464 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:32,567 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:32,671 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:32,775 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:32,877 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:32,979 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:33,080 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:33,183 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:33,287 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:33,391 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:33,493 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:33,596 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:33,700 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:33,804 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:33,908 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:34,009 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:34,110 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:34,212 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:34,316 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:34,420 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:34,523 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:34,625 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:34,729 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:34,832 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:34,936 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:35,040 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:35,143 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:35,249 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:35,352 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:35,456 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:35,560 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:35,664 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:35,767 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:35,870 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:35,972 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:36,073 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:36,177 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:36,280 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:36,383 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:36,487 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:36,590 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:36,693 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:36,796 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:36,900 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:37,003 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:37,105 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:37,208 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:37,311 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:37,415 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:37,519 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:37,622 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:37,726 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:37,829 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:37,933 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:38,034 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:38,138 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:38,241 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:38,343 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:38,445 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:38,549 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:38,652 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:38,754 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:38,857 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:38,958 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:39,060 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:39,163 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:39,266 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:39,367 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:39,471 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:39,574 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:39,677 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:39,778 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:39,881 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:39,985 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:40,088 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:40,191 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:40,295 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:40,398 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:40,500 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:40,603 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:40,705 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:40,806 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:40,910 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:41,011 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:41,114 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:41,215 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:41,318 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:41,420 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:41,523 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:41,626 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:41,730 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:41,833 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:41,936 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:42,040 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:42,143 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:42,246 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:42,348 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:42,452 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:42,555 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:42,657 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:42,760 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:42,863 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:42,965 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:43,067 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:43,170 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:43,273 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:43,376 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:43,480 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:43,583 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:43,684 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:43,787 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:43,891 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:43,992 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:44,095 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:44,197 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:44,298 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:44,401 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:44,504 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:44,608 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:44,709 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:44,812 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:44,915 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:45,018 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:45,120 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:45,228 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:45,329 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:45,432 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:45,535 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:45,638 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:45,741 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:45,844 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:45,945 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:46,047 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:46,150 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:46,253 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:46,354 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:46,457 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:46,561 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:46,664 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:46,767 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:46,871 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:46,974 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:47,077 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:47,179 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:47,282 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:47,386 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:47,489 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:47,592 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:47,695 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:47,797 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:47,900 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:48,001 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:48,102 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:48,205 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:48,309 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:48,412 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:48,515 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:48,618 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:48,722 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:48,823 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:48,925 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:49,027 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:49,130 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:49,231 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:49,333 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:49,434 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:49,537 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:49,640 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:49,743 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:49,845 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:49,948 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:50,051 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:50,154 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:50,255 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:50,358 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:50,462 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:50,565 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:50,666 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:50,769 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:50,873 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:50,976 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:51,077 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:51,180 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:51,281 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:51,384 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:51,487 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:51,591 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:51,692 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:51,795 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:51,897 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:52,000 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:52,103 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:52,206 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:52,307 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:52,410 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:52,514 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:52,617 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:52,718 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:52,821 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:52,922 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:53,025 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:53,132 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:53,236 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:53,337 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:53,440 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:53,543 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:53,646 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:53,748 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:53,851 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:53,952 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:54,054 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:54,157 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:54,260 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:54,362 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:54,465 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:54,568 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:54,671 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:54,774 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:54,877 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:54,980 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:55,083 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:55,186 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:55,288 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:55,391 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:55,494 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:55,597 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:55,700 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:55,802 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:55,905 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:56,006 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:56,109 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:56,212 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:56,315 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:56,417 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:56,526 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:56,629 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:56,731 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:56,834 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:56,937 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:57,040 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:57,143 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:57,245 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:57,357 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:57,458 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:57,561 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:57,665 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:57,768 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:57,869 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:57,970 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:58,073 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:58,176 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:58,277 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:58,380 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:58,483 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:58,586 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:58,687 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:58,790 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:58,891 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:58,994 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:59,096 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:59,199 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:59,300 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:59,403 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:59,507 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:59,610 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:59,711 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:59,813 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:31:59,915 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[DEBUG]  2020-09-19 22:32:00,002 --schedule-job_QuartzSchedulerThread-- [org.quartz.simpl.PropertySettingJobFactory] Producing instance of Job 'DEFAULT.schedule-job', class=org.apache.shardingsphere.elasticjob.lite.internal.schedule.LiteJob
+[DEBUG]  2020-09-19 22:32:00,003 --schedule-job_Worker-1-- [org.quartz.core.JobRunShell] Calling execute on job DEFAULT.schedule-job
+[DEBUG]  2020-09-19 22:32:00,017 --foo_Worker-1-- [org.apache.shardingsphere.elasticjob.lite.internal.sharding.ShardingService] Job 'foo' sleep short time until sharding completed.
+[INFO ]  2020-09-19 22:32:00,052 --elasticjob-schedule-job-3-- [org.apache.shardingsphere.elasticjob.lite.example.bug.ScheduleSimpleJob] Execute job foo on 0
+[INFO ]  2020-09-19 22:32:00,053 --elasticjob-schedule-job-3-- [org.apache.shardingsphere.elasticjob.lite.api.bootstrap.impl.OneOffJobBootstrap] Write trigger /foo/instances/192.168.3.233@-@1984062
+[INFO ]  2020-09-19 22:32:00,057 --elasticjob-schedule-job-3-- [org.apache.shardingsphere.elasticjob.lite.api.bootstrap.impl.OneOffJobBootstrap] Write finished trigger /foo/instances/192.168.3.233@-@1984062
+[INFO ]  2020-09-19 22:32:00,057 --elasticjob-schedule-job-3-- [org.apache.shardingsphere.elasticjob.lite.api.bootstrap.impl.OneOffJobBootstrap] Write trigger /foo/instances/192.168.3.233@-@1982250
+[INFO ]  2020-09-19 22:32:00,058 --Curator-SafeNotifyService-0-- [org.apache.shardingsphere.elasticjob.lite.internal.instance.TriggerListenerManager] Triggering /foo/instances/192.168.3.233@-@1984062
+[INFO ]  2020-09-19 22:32:00,061 --elasticjob-schedule-job-3-- [org.apache.shardingsphere.elasticjob.lite.api.bootstrap.impl.OneOffJobBootstrap] Write finished trigger /foo/instances/192.168.3.233@-@1982250
+[DEBUG]  2020-09-19 22:32:00,079 --schedule-job_QuartzSchedulerThread-- [org.quartz.core.QuartzSchedulerThread] batch acquisition of 1 triggers
+[INFO ]  2020-09-19 22:32:00,129 --elasticjob-foo-1-- [org.apache.shardingsphere.elasticjob.lite.example.bug.ScheduleSimpleJob$SomeSimpleJob] foo [0] started.
+[INFO ]  2020-09-19 22:32:00,135 --elasticjob-foo-2-- [org.apache.shardingsphere.elasticjob.lite.example.bug.ScheduleSimpleJob$SomeSimpleJob] foo [2] started.
+[INFO ]  2020-09-19 22:32:02,291 --elasticjob-foo-2-- [org.apache.shardingsphere.elasticjob.lite.example.bug.ScheduleSimpleJob$SomeSimpleJob] foo [2] finished. Took 2156
+[INFO ]  2020-09-19 22:32:04,168 --elasticjob-foo-1-- [org.apache.shardingsphere.elasticjob.lite.example.bug.ScheduleSimpleJob$SomeSimpleJob] foo [0] finished. Took 4039
+[DEBUG]  2020-09-19 22:32:04,195 --foo_QuartzSchedulerThread-- [org.quartz.core.QuartzSchedulerThread] batch acquisition of 1 triggers
+[DEBUG]  2020-09-19 22:32:04,195 --foo_QuartzSchedulerThread-- [org.quartz.simpl.PropertySettingJobFactory] Producing instance of Job 'DEFAULT.foo', class=org.apache.shardingsphere.elasticjob.lite.internal.schedule.LiteJob
+[DEBUG]  2020-09-19 22:32:04,195 --foo_Worker-1-- [org.quartz.core.JobRunShell] Calling execute on job DEFAULT.foo
+[INFO ]  2020-09-19 22:32:04,219 --elasticjob-foo-3-- [org.apache.shardingsphere.elasticjob.lite.example.bug.ScheduleSimpleJob$SomeSimpleJob] foo [0] started.
+[INFO ]  2020-09-19 22:32:04,219 --elasticjob-foo-4-- [org.apache.shardingsphere.elasticjob.lite.example.bug.ScheduleSimpleJob$SomeSimpleJob] foo [2] started.
+[INFO ]  2020-09-19 22:32:05,400 --elasticjob-foo-3-- [org.apache.shardingsphere.elasticjob.lite.example.bug.ScheduleSimpleJob$SomeSimpleJob] foo [0] finished. Took 1181
+[INFO ]  2020-09-19 22:32:07,391 --elasticjob-foo-4-- [org.apache.shardingsphere.elasticjob.lite.example.bug.ScheduleSimpleJob$SomeSimpleJob] foo [2] finished. Took 3172
+[DEBUG]  2020-09-19 22:32:07,418 --foo_QuartzSchedulerThread-- [org.quartz.core.QuartzSchedulerThread] batch acquisition of 0 triggers
+Disconnected from the target VM, address: '127.0.0.1:57863', transport: 'socket'
+[INFO ]  2020-09-19 22:32:07,474 --Quartz Shutdown-Hook schedule-job-- [org.apache.shardingsphere.elasticjob.lite.internal.schedule.JobShutdownHookPlugin] Shutting down Quartz... schedule-job
+[INFO ]  2020-09-19 22:32:07,474 --Quartz Shutdown-Hook foo-- [org.apache.shardingsphere.elasticjob.lite.internal.schedule.JobShutdownHookPlugin] Shutting down Quartz... foo
+[INFO ]  2020-09-19 22:32:07,474 --Quartz Shutdown-Hook schedule-job-- [org.quartz.core.QuartzScheduler] Scheduler schedule-job_$_NON_CLUSTERED shutting down.
+[INFO ]  2020-09-19 22:32:07,475 --Quartz Shutdown-Hook foo-- [org.quartz.core.QuartzScheduler] Scheduler foo_$_NON_CLUSTERED shutting down.
+[INFO ]  2020-09-19 22:32:07,475 --Quartz Shutdown-Hook schedule-job-- [org.quartz.core.QuartzScheduler] Scheduler schedule-job_$_NON_CLUSTERED paused.
+[INFO ]  2020-09-19 22:32:07,475 --Quartz Shutdown-Hook foo-- [org.quartz.core.QuartzScheduler] Scheduler foo_$_NON_CLUSTERED paused.
+[DEBUG]  2020-09-19 22:32:07,475 --Quartz Shutdown-Hook foo-- [org.quartz.simpl.SimpleThreadPool] Shutting down threadpool...
+[DEBUG]  2020-09-19 22:32:07,475 --Quartz Shutdown-Hook schedule-job-- [org.quartz.simpl.SimpleThreadPool] Shutting down threadpool...
+[DEBUG]  2020-09-19 22:32:07,555 --Curator-SafeNotifyService-0-- [org.apache.shardingsphere.elasticjob.lite.internal.election.LeaderService] Elect a new leader now.
+[DEBUG]  2020-09-19 22:32:07,576 --Curator-SafeNotifyService-0-- [org.apache.shardingsphere.elasticjob.lite.internal.election.LeaderService] Leader election completed.
+
+Process finished with exit code 137 (interrupted by signal 9: SIGKILL)
