@@ -17,6 +17,7 @@
 
 package org.apache.shardingsphere.elasticjob.lite.internal.instance;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.shardingsphere.elasticjob.lite.internal.listener.AbstractJobListener;
 import org.apache.shardingsphere.elasticjob.lite.internal.listener.AbstractListenerManager;
 import org.apache.shardingsphere.elasticjob.lite.internal.schedule.JobRegistry;
@@ -25,6 +26,7 @@ import org.apache.shardingsphere.elasticjob.reg.base.CoordinatorRegistryCenter;
 /**
  * Job trigger listener manager.
  */
+@Slf4j
 public final class TriggerListenerManager extends AbstractListenerManager {
     
     private final String jobName;
@@ -52,6 +54,7 @@ public final class TriggerListenerManager extends AbstractListenerManager {
             if (!InstanceOperation.TRIGGER.name().equals(data) || !instanceNode.isLocalInstancePath(path) || Type.NODE_CHANGED != eventType) {
                 return;
             }
+            log.info("Triggering {}", path);
             instanceService.clearTriggerFlag();
             if (!JobRegistry.getInstance().isShutdown(jobName) && !JobRegistry.getInstance().isJobRunning(jobName)) {
                 // TODO At present, it cannot be triggered when the job is running, and it will be changed to a stacked trigger in the future.

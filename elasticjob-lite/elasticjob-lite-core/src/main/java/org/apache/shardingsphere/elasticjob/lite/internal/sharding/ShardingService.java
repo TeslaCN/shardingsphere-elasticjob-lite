@@ -37,11 +37,13 @@ import org.apache.shardingsphere.elasticjob.lite.internal.storage.JobNodeStorage
 import org.apache.shardingsphere.elasticjob.lite.internal.storage.TransactionExecutionCallback;
 import org.apache.shardingsphere.elasticjob.reg.base.CoordinatorRegistryCenter;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.stream.Collectors;
 
 /**
  * Sharding service.
@@ -80,6 +82,8 @@ public final class ShardingService {
      * Set resharding flag.
      */
     public void setReshardingFlag() {
+        String stackTrace = Arrays.stream(Thread.currentThread().getStackTrace()).map(StackTraceElement::toString).collect(Collectors.joining("\n"));
+        log.info("{} Need resharding \n{}", jobName, stackTrace);
         jobNodeStorage.createJobNodeIfNeeded(ShardingNode.NECESSARY);
     }
     

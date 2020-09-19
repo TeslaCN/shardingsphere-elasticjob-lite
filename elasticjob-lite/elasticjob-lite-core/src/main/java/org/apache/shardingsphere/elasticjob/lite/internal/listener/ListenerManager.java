@@ -17,6 +17,7 @@
 
 package org.apache.shardingsphere.elasticjob.lite.internal.listener;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.shardingsphere.elasticjob.api.listener.ElasticJobListener;
 import org.apache.shardingsphere.elasticjob.lite.internal.config.RescheduleListenerManager;
 import org.apache.shardingsphere.elasticjob.lite.internal.election.ElectionListenerManager;
@@ -34,6 +35,7 @@ import java.util.List;
 /**
  * Listener manager facade.
  */
+@Slf4j
 public final class ListenerManager {
     
     private final JobNodeStorage jobNodeStorage;
@@ -56,6 +58,8 @@ public final class ListenerManager {
     
     private final RegistryCenterConnectionStateListener regCenterConnectionStateListener;
     
+    private final String jobName;
+    
     public ListenerManager(final CoordinatorRegistryCenter regCenter, final String jobName, final List<ElasticJobListener> elasticJobListeners) {
         jobNodeStorage = new JobNodeStorage(regCenter, jobName);
         electionListenerManager = new ElectionListenerManager(regCenter, jobName);
@@ -67,12 +71,14 @@ public final class ListenerManager {
         rescheduleListenerManager = new RescheduleListenerManager(regCenter, jobName);
         guaranteeListenerManager = new GuaranteeListenerManager(regCenter, jobName, elasticJobListeners);
         regCenterConnectionStateListener = new RegistryCenterConnectionStateListener(regCenter, jobName);
+        this.jobName = jobName;
     }
     
     /**
      * Start all listeners.
      */
     public void startAllListeners() {
+        log.info("Starting listeners for {}", jobName);
         electionListenerManager.start();
         shardingListenerManager.start();
         failoverListenerManager.start();
@@ -82,5 +88,6 @@ public final class ListenerManager {
         rescheduleListenerManager.start();
         guaranteeListenerManager.start();
         jobNodeStorage.addConnectionStateListener(regCenterConnectionStateListener);
+        log.info("Listeners started for {}", jobName);
     }
 }

@@ -19,6 +19,7 @@ package org.apache.shardingsphere.elasticjob.lite.api.bootstrap.impl;
 
 import com.google.common.base.Preconditions;
 import com.google.common.base.Strings;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.shardingsphere.elasticjob.lite.api.bootstrap.JobBootstrap;
 import org.apache.shardingsphere.elasticjob.api.ElasticJob;
 import org.apache.shardingsphere.elasticjob.api.listener.ElasticJobListener;
@@ -32,6 +33,7 @@ import org.apache.shardingsphere.elasticjob.tracing.api.TracingConfiguration;
 /**
  * One off job bootstrap.
  */
+@Slf4j
 public final class OneOffJobBootstrap implements JobBootstrap {
     
     private final JobScheduler jobScheduler;
@@ -66,7 +68,10 @@ public final class OneOffJobBootstrap implements JobBootstrap {
         CoordinatorRegistryCenter regCenter = jobScheduler.getRegCenter();
         JobNodePath jobNodePath = new JobNodePath(jobScheduler.getJobConfig().getJobName());
         for (String each : regCenter.getChildrenKeys(jobNodePath.getInstancesNodePath())) {
-            regCenter.persist(jobNodePath.getInstanceNodePath(each), InstanceOperation.TRIGGER.name());
+            String instanceNodePath = jobNodePath.getInstanceNodePath(each);
+            log.info("Write trigger {}", instanceNodePath);
+            regCenter.persist(instanceNodePath, InstanceOperation.TRIGGER.name());
+            log.info("Write finished trigger {}", instanceNodePath);
         }
     }
     

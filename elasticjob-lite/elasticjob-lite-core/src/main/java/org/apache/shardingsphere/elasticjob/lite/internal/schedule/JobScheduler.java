@@ -18,6 +18,7 @@
 package org.apache.shardingsphere.elasticjob.lite.internal.schedule;
 
 import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.shardingsphere.elasticjob.api.ElasticJob;
 import org.apache.shardingsphere.elasticjob.api.JobConfiguration;
 import org.apache.shardingsphere.elasticjob.api.listener.ElasticJobListener;
@@ -44,6 +45,7 @@ import java.util.Properties;
 /**
  * Job scheduler.
  */
+@Slf4j
 public final class JobScheduler {
     
     private static final String JOB_EXECUTOR_DATA_MAP_KEY = "jobExecutor";
