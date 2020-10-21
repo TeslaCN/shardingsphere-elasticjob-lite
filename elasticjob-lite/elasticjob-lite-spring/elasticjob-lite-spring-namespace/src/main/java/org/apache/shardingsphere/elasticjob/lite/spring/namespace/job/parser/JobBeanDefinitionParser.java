@@ -76,7 +76,6 @@ public final class JobBeanDefinitionParser extends AbstractBeanDefinitionParser 
         result.addConstructorArgValue(element.getAttribute(JobBeanDefinitionTag.RECONCILE_INTERVAL_MINUTES));
         result.addConstructorArgValue(element.getAttribute(JobBeanDefinitionTag.JOB_SHARDING_STRATEGY_TYPE_ATTRIBUTE));
         result.addConstructorArgValue(element.getAttribute(JobBeanDefinitionTag.JOB_EXECUTOR_SERVICE_HANDLER_TYPE_ATTRIBUTE));
-        result.addConstructorArgValue(element.getAttribute(JobBeanDefinitionTag.JOB_ERROR_HANDLER_TYPE_ATTRIBUTE));
         if (StringUtils.isEmpty(element.getAttribute(JobBeanDefinitionTag.JOB_LISTENER_TYPES_ATTRIBUTE).trim())) {
             result.addConstructorArgValue(Collections.emptyList());
         } else {

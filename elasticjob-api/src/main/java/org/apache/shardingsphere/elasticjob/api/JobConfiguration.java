@@ -61,8 +61,6 @@ public final class JobConfiguration {
     
     private final String jobExecutorServiceHandlerType;
     
-    private final String jobErrorHandlerType;
-    
     private final Collection<String> jobListenerTypes;
     
     private final Collection<JobExtraConfiguration> extraConfigurations;
@@ -112,8 +110,6 @@ public final class JobConfiguration {
         private String jobShardingStrategyType;
         
         private String jobExecutorServiceHandlerType;
-        
-        private String jobErrorHandlerType;
     
         private final Collection<String> jobListenerTypes = new ArrayList<>();
 
@@ -279,17 +275,6 @@ public final class JobConfiguration {
         }
         
         /**
-         * Set job error handler type.
-         *
-         * @param jobErrorHandlerType job error handler type
-         * @return job configuration builder
-         */
-        public Builder jobErrorHandlerType(final String jobErrorHandlerType) {
-            this.jobErrorHandlerType = jobErrorHandlerType;
-            return this;
-        }
-        
-        /**
          * Set job listener types.
          *
          * @param jobListenerTypes job listener types
@@ -374,9 +359,9 @@ public final class JobConfiguration {
         public final JobConfiguration build() {
             Preconditions.checkArgument(!Strings.isNullOrEmpty(jobName), "jobName can not be empty.");
             Preconditions.checkArgument(shardingTotalCount > 0, "shardingTotalCount should larger than zero.");
-            return new JobConfiguration(jobName, cron, shardingTotalCount, shardingItemParameters, jobParameter, 
+            return new JobConfiguration(jobName, cron, shardingTotalCount, shardingItemParameters, jobParameter,
                     monitorExecution, failover, misfire, maxTimeDiffSeconds, reconcileIntervalMinutes,
-                    jobShardingStrategyType, jobExecutorServiceHandlerType, jobErrorHandlerType, jobListenerTypes, extraConfigurations, description, props, disabled, overwrite);
+                    jobShardingStrategyType, jobExecutorServiceHandlerType, jobListenerTypes, extraConfigurations, description, props, disabled, overwrite);
         }
     }
 }

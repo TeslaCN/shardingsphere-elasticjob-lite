@@ -59,8 +59,6 @@ public final class ElasticJobConfigurationProperties {
     
     private String jobExecutorServiceHandlerType;
     
-    private String jobErrorHandlerType;
-    
     private String description;
     
     private Properties props = new Properties();
@@ -80,7 +78,7 @@ public final class ElasticJobConfigurationProperties {
                 .cron(cron).shardingItemParameters(shardingItemParameters).jobParameter(jobParameter)
                 .monitorExecution(monitorExecution).failover(failover).misfire(misfire)
                 .maxTimeDiffSeconds(maxTimeDiffSeconds).reconcileIntervalMinutes(reconcileIntervalMinutes)
-                .jobShardingStrategyType(jobShardingStrategyType).jobExecutorServiceHandlerType(jobExecutorServiceHandlerType).jobErrorHandlerType(jobErrorHandlerType)
+                .jobShardingStrategyType(jobShardingStrategyType).jobExecutorServiceHandlerType(jobExecutorServiceHandlerType)
                 .description(description).disabled(disabled).overwrite(overwrite).build();
         for (Object each : props.keySet()) {
             result.getProps().setProperty(each.toString(), props.get(each.toString()).toString());

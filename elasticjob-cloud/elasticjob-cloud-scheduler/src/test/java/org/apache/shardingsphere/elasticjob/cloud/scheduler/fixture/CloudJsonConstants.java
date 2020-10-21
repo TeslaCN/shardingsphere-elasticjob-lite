@@ -28,7 +28,7 @@ public final class CloudJsonConstants {
             + "\"jobExecutionType\":\"%s\",\"jobName\":\"%s\",\"cron\":\"0/30 * * * * ?\","
             + "\"shardingTotalCount\":10,\"shardingItemParameters\":\"\",\"jobParameter\":\"\",\"monitorExecution\":false,"
             + "\"failover\":true,\"misfire\":%s,\"maxTimeDiffSeconds\":0,\"reconcileIntervalMinutes\":0,"
-            + "\"jobShardingStrategyType\":null,\"jobExecutorServiceHandlerType\":null,\"jobErrorHandlerType\":null,"
+            + "\"jobShardingStrategyType\":null,\"jobExecutorServiceHandlerType\":null,"
             + "\"description\":\"\",\"props\":{},\"disabled\":false,\"overwrite\":false}";
     
     private static final String SPRING_JOB_JSON = "{\"jobName\":\"test_spring_job\","

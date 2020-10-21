@@ -19,6 +19,7 @@ package org.apache.shardingsphere.elasticjob.executor;
 
 import lombok.SneakyThrows;
 import org.apache.shardingsphere.elasticjob.api.JobConfiguration;
+import org.apache.shardingsphere.elasticjob.error.handler.general.ThrowErrorHandlerConfiguration;
 import org.apache.shardingsphere.elasticjob.executor.fixture.executor.ClassedFooJobExecutor;
 import org.apache.shardingsphere.elasticjob.executor.fixture.job.FooJob;
 import org.apache.shardingsphere.elasticjob.infra.exception.JobExecutionEnvironmentException;
@@ -68,7 +69,8 @@ public final class ElasticJobExecutorTest {
     
     private JobConfiguration createJobConfiguration() {
         return JobConfiguration.newBuilder("test_job", 3)
-                .cron("0/1 * * * * ?").shardingItemParameters("0=A,1=B,2=C").jobParameter("param").failover(true).misfire(false).jobErrorHandlerType("THROW").description("desc").build();
+                .cron("0/1 * * * * ?").shardingItemParameters("0=A,1=B,2=C").jobParameter("param").failover(true).misfire(false)
+                .addExtraConfigurations(new ThrowErrorHandlerConfiguration()).description("desc").build();
     }
     
     @SneakyThrows

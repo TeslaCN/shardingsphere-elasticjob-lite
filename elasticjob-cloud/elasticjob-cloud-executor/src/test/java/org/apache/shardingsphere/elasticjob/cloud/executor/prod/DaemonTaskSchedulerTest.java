@@ -106,7 +106,7 @@ public final class DaemonTaskSchedulerTest {
     }
     
     private JobConfiguration createJobConfiguration() {
-        return JobConfiguration.newBuilder("test_script_job", 3).cron("0/1 * * * * ?").jobErrorHandlerType("IGNORE").setProperty(ScriptJobProperties.SCRIPT_KEY, "echo test").build();
+        return JobConfiguration.newBuilder("test_script_job", 3).cron("0/1 * * * * ?").setProperty(ScriptJobProperties.SCRIPT_KEY, "echo test").build();
     }
     
     @Test

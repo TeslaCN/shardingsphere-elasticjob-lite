@@ -36,7 +36,6 @@ public final class JobConfigurationPOJOTest {
             + "description: Job description\n"
             + "disabled: false\n"
             + "failover: false\n"
-            + "jobErrorHandlerType: IGNORE\n"
             + "jobExecutorServiceHandlerType: CPU\n"
             + "jobName: test_job\n"
             + "jobParameter: param\n"
@@ -75,7 +74,6 @@ public final class JobConfigurationPOJOTest {
         pojo.setMisfire(true);
         pojo.setJobShardingStrategyType("AVG_ALLOCATION");
         pojo.setJobExecutorServiceHandlerType("CPU");
-        pojo.setJobErrorHandlerType("IGNORE");
         pojo.setJobListenerTypes(Collections.singletonList("LOG"));
         pojo.setDescription("Job description");
         pojo.getProps().setProperty("key", "value");
@@ -92,7 +90,6 @@ public final class JobConfigurationPOJOTest {
         assertTrue(actual.isMisfire());
         assertThat(actual.getJobShardingStrategyType(), is("AVG_ALLOCATION"));
         assertThat(actual.getJobExecutorServiceHandlerType(), is("CPU"));
-        assertThat(actual.getJobErrorHandlerType(), is("IGNORE"));
         assertThat(actual.getJobListenerTypes(), hasItem("LOG"));
         assertThat(actual.getDescription(), is("Job description"));
         assertThat(actual.getProps().getProperty("key"), is("value"));
@@ -106,7 +103,7 @@ public final class JobConfigurationPOJOTest {
                 .cron("0/1 * * * * ?")
                 .shardingItemParameters("0=A,1=B,2=C").jobParameter("param")
                 .monitorExecution(true).failover(true).misfire(true)
-                .jobShardingStrategyType("AVG_ALLOCATION").jobExecutorServiceHandlerType("CPU").jobErrorHandlerType("IGNORE")
+                .jobShardingStrategyType("AVG_ALLOCATION").jobExecutorServiceHandlerType("CPU")
                 .jobListenerTypes("LOG").description("Job description").setProperty("key", "value")
                 .disabled(true).overwrite(true).build();
         JobConfigurationPOJO actual = JobConfigurationPOJO.fromJobConfiguration(jobConfiguration);
@@ -120,7 +117,6 @@ public final class JobConfigurationPOJOTest {
         assertTrue(actual.isMisfire());
         assertThat(actual.getJobShardingStrategyType(), is("AVG_ALLOCATION"));
         assertThat(actual.getJobExecutorServiceHandlerType(), is("CPU"));
-        assertThat(actual.getJobErrorHandlerType(), is("IGNORE"));
         assertThat(actual.getJobListenerTypes(), hasItem("LOG"));
         assertThat(actual.getDescription(), is("Job description"));
         assertThat(actual.getProps().getProperty("key"), is("value"));
@@ -139,7 +135,6 @@ public final class JobConfigurationPOJOTest {
         actual.setMaxTimeDiffSeconds(-1);
         actual.setJobShardingStrategyType("AVG_ALLOCATION");
         actual.setJobExecutorServiceHandlerType("CPU");
-        actual.setJobErrorHandlerType("IGNORE");
         actual.setDescription("Job description");
         actual.getProps().setProperty("key", "value");
         assertThat(YamlEngine.marshal(actual), is(YAML));
@@ -168,7 +163,6 @@ public final class JobConfigurationPOJOTest {
         assertFalse(actual.isMisfire());
         assertThat(actual.getJobShardingStrategyType(), is("AVG_ALLOCATION"));
         assertThat(actual.getJobExecutorServiceHandlerType(), is("CPU"));
-        assertThat(actual.getJobErrorHandlerType(), is("IGNORE"));
         assertThat(actual.getDescription(), is("Job description"));
         assertThat(actual.getProps().getProperty("key"), is("value"));
     }
@@ -186,7 +180,6 @@ public final class JobConfigurationPOJOTest {
         assertFalse(actual.isMisfire());
         assertNull(actual.getJobShardingStrategyType());
         assertNull(actual.getJobExecutorServiceHandlerType());
-        assertNull(actual.getJobErrorHandlerType());
         assertNull(actual.getDescription());
         assertTrue(actual.getProps().isEmpty());
         assertFalse(actual.isDisabled());

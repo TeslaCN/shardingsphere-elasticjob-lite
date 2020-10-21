@@ -34,7 +34,7 @@ public final class JobConfigurationTest {
                 .shardingItemParameters("0=a,1=b,2=c").jobParameter("param")
                 .monitorExecution(false).failover(true).misfire(false)
                 .maxTimeDiffSeconds(1000).reconcileIntervalMinutes(60)
-                .jobShardingStrategyType("AVG_ALLOCATION").jobExecutorServiceHandlerType("SINGLE_THREAD").jobErrorHandlerType("IGNORE")
+                .jobShardingStrategyType("AVG_ALLOCATION").jobExecutorServiceHandlerType("SINGLE_THREAD")
                 .description("desc").setProperty("key", "value")
                 .disabled(true).overwrite(true).build();
         assertThat(actual.getJobName(), is("test_job"));
@@ -49,7 +49,6 @@ public final class JobConfigurationTest {
         assertThat(actual.getReconcileIntervalMinutes(), is(60));
         assertThat(actual.getJobShardingStrategyType(), is("AVG_ALLOCATION"));
         assertThat(actual.getJobExecutorServiceHandlerType(), is("SINGLE_THREAD"));
-        assertThat(actual.getJobErrorHandlerType(), is("IGNORE"));
         assertThat(actual.getDescription(), is("desc"));
         assertThat(actual.getProps().getProperty("key"), is("value"));
         assertTrue(actual.isDisabled());
@@ -71,7 +70,6 @@ public final class JobConfigurationTest {
         assertThat(actual.getReconcileIntervalMinutes(), is(10));
         assertNull(actual.getJobShardingStrategyType());
         assertNull(actual.getJobExecutorServiceHandlerType());
-        assertNull(actual.getJobErrorHandlerType());
         assertThat(actual.getDescription(), is(""));
         assertTrue(actual.getProps().isEmpty());
         assertFalse(actual.isDisabled());

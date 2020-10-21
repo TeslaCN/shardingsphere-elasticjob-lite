@@ -125,21 +125,21 @@ public final class JavaMain {
     
     private static void setUpOneOffJobWithDingtalk(final CoordinatorRegistryCenter regCenter, final TracingConfiguration<DataSource> tracingConfig) {
         JobConfiguration jobConfig = JobConfiguration.newBuilder("javaOccurErrorOfDingtalkJob", 3)
-                .shardingItemParameters("0=Beijing,1=Shanghai,2=Guangzhou").jobErrorHandlerType("DINGTALK").addExtraConfigurations(tracingConfig).build();
+                .shardingItemParameters("0=Beijing,1=Shanghai,2=Guangzhou").addExtraConfigurations(tracingConfig).build();
         setDingtalkConfiguration(jobConfig);
         new OneOffJobBootstrap(regCenter, new JavaOccurErrorJob(), jobConfig).execute();
     }
     
     private static void setUpOneOffJobWithWechat(final CoordinatorRegistryCenter regCenter, final TracingConfiguration<DataSource> tracingConfig) {
         JobConfiguration jobConfig = JobConfiguration.newBuilder("javaOccurErrorOfWechatJob", 3)
-                .shardingItemParameters("0=Beijing,1=Shanghai,2=Guangzhou").jobErrorHandlerType("WECHAT").addExtraConfigurations(tracingConfig).build();
+                .shardingItemParameters("0=Beijing,1=Shanghai,2=Guangzhou").addExtraConfigurations(tracingConfig).build();
         setWechatConfiguration(jobConfig);
         new OneOffJobBootstrap(regCenter, new JavaOccurErrorJob(), jobConfig).execute();
     }
     
     private static void setUpOneOffJobWithEmail(final CoordinatorRegistryCenter regCenter, final TracingConfiguration<DataSource> tracingConfig) {
         JobConfiguration jobConfig = JobConfiguration.newBuilder("javaOccurErrorOfEmailJob", 3)
-                .shardingItemParameters("0=Beijing,1=Shanghai,2=Guangzhou").jobErrorHandlerType("EMAIL").addExtraConfigurations(tracingConfig).build();
+                .shardingItemParameters("0=Beijing,1=Shanghai,2=Guangzhou").addExtraConfigurations(tracingConfig).build();
         setEmailConfiguration(jobConfig);
         new OneOffJobBootstrap(regCenter, new JavaOccurErrorJob(), jobConfig).execute();
     }

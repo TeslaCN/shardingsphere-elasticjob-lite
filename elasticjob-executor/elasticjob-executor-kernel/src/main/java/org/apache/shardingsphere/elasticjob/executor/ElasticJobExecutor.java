@@ -37,11 +37,12 @@ import org.apache.shardingsphere.elasticjob.tracing.event.JobExecutionEvent.Exec
 import org.apache.shardingsphere.elasticjob.tracing.event.JobStatusTraceEvent.State;
 
 import java.util.Collection;
+import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
+import java.util.stream.Collectors;
 
 /**
  * ElasticJob executor.
@@ -59,7 +60,7 @@ public final class ElasticJobExecutor {
     
     private final ExecutorService executorService;
     
-    private final JobErrorHandler jobErrorHandler;
+    private final Map<ErrorHandlerConfiguration, JobErrorHandler<ErrorHandlerConfiguration>> jobErrorHandlers = new LinkedHashMap<>();
     
     private final Map<Integer, String> itemErrorMessages;
     
@@ -77,20 +78,31 @@ public final class ElasticJobExecutor {
         this.jobFacade = jobFacade;
         this.jobItemExecutor = jobItemExecutor;
         executorService = JobExecutorServiceHandlerFactory.getHandler(jobConfig.getJobExecutorServiceHandlerType()).createExecutorService(jobConfig.getJobName());
-        jobErrorHandler = JobErrorHandlerFactory.createHandler(jobConfig.getJobErrorHandlerType())
-                .orElseThrow(() -> new JobConfigurationException("Can not find job error handler type '%s'.", jobConfig.getJobErrorHandlerType()));
+        setUpJobErrorHandlers(jobConfig);
         itemErrorMessages = new ConcurrentHashMap<>(jobConfig.getShardingTotalCount(), 1);
+    }
+    
+    @SuppressWarnings("unchecked")
+    private void setUpJobErrorHandlers(final JobConfiguration jobConfig) {
+        findAllJobErrorHandlerConfigurations(jobConfig).forEach(each -> {
+            JobErrorHandler<ErrorHandlerConfiguration> jobErrorHandler = JobErrorHandlerFactory.createHandler(each.getType())
+                    .orElseThrow(() -> new JobConfigurationException("Can not find job error handler type '%s'.", each.getType()));
+            jobErrorHandlers.put(each, jobErrorHandler);
+        });
+    }
+    
+    private Collection<ErrorHandlerConfiguration> findAllJobErrorHandlerConfigurations(final JobConfiguration jobConfiguration) {
+        return jobConfiguration.getExtraConfigurations().stream().filter(this::isErrorHandlerConfiguration).map(c -> (ErrorHandlerConfiguration) c).collect(Collectors.toList());
     }
     
     /**
      * Execute job.
      */
-    @SuppressWarnings("unchecked")
     public void execute() {
         try {
             jobFacade.checkJobExecutionEnvironment();
         } catch (final JobExecutionEnvironmentException cause) {
-            jobErrorHandler.handleException(jobConfig.getJobName(), findErrorHandlerConfiguration().orElse(null), cause);
+            handleException(cause);
         }
         ShardingContexts shardingContexts = jobFacade.getShardingContexts();
         jobFacade.postJobStatusTraceEvent(shardingContexts.getTaskId(), State.TASK_STAGING, String.format("Job '%s' execute begin.", jobConfig.getJobName()));
@@ -105,7 +117,7 @@ public final class ElasticJobExecutor {
             //CHECKSTYLE:OFF
         } catch (final Throwable cause) {
             //CHECKSTYLE:ON
-            jobErrorHandler.handleException(jobConfig.getJobName(), findErrorHandlerConfiguration().orElse(null), cause);
+            handleException(cause);
         }
         execute(shardingContexts, ExecutionSource.NORMAL_TRIGGER);
         while (jobFacade.isExecuteMisfired(shardingContexts.getShardingItemParameters().keySet())) {
@@ -118,7 +130,7 @@ public final class ElasticJobExecutor {
             //CHECKSTYLE:OFF
         } catch (final Throwable cause) {
             //CHECKSTYLE:ON
-            jobErrorHandler.handleException(jobConfig.getJobName(), findErrorHandlerConfiguration().orElse(null), cause);
+            handleException(cause);
         }
     }
     
@@ -188,16 +200,16 @@ public final class ElasticJobExecutor {
             completeEvent = startEvent.executionFailure(ExceptionUtils.transform(cause));
             jobFacade.postJobExecutionEvent(completeEvent);
             itemErrorMessages.put(item, ExceptionUtils.transform(cause));
-            jobErrorHandler.handleException(jobConfig.getJobName(), findErrorHandlerConfiguration().orElse(null), cause);
+            handleException(cause);
         }
     }
     
-    private Optional<ErrorHandlerConfiguration> findErrorHandlerConfiguration() {
-        return jobConfig.getExtraConfigurations().stream().filter(this::isMatchErrorHandlerType).map(extraConfig -> (ErrorHandlerConfiguration) extraConfig).findFirst();
+    private boolean isErrorHandlerConfiguration(final JobExtraConfiguration extraConfig) {
+        return extraConfig instanceof ErrorHandlerConfiguration;
     }
     
-    private boolean isMatchErrorHandlerType(final JobExtraConfiguration extraConfig) {
-        return extraConfig instanceof ErrorHandlerConfiguration && ((ErrorHandlerConfiguration) extraConfig).getType().equals(jobConfig.getJobErrorHandlerType());
+    private void handleException(final Throwable cause) {
+        jobErrorHandlers.forEach((configuration, jobErrorHandler) -> jobErrorHandler.handleException(jobConfig.getJobName(), configuration, cause));
     }
     
     /**

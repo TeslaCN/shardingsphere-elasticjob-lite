@@ -48,7 +48,7 @@ public final class CloudJobFacade implements JobFacade {
                 .cron(jobConfig.getCron()).shardingItemParameters(jobConfig.getShardingItemParameters()).jobParameter(jobConfig.getJobParameter())
                 .failover(jobConfig.isFailover()).misfire(jobConfig.isMisfire()).description(jobConfig.getDescription())
                 .jobExecutorServiceHandlerType(jobConfig.getJobExecutorServiceHandlerType())
-                .jobErrorHandlerType(jobConfig.getJobErrorHandlerType()).build();
+                .build();
         result.getProps().putAll(jobConfig.getProps());
         return result;
     }

@@ -56,8 +56,6 @@ public final class JobConfigurationPOJO {
     
     private String jobExecutorServiceHandlerType;
     
-    private String jobErrorHandlerType;
-    
     private Collection<String> jobListenerTypes = new ArrayList<>();
     
     private String description;
@@ -78,7 +76,7 @@ public final class JobConfigurationPOJO {
                 .cron(cron).shardingItemParameters(shardingItemParameters).jobParameter(jobParameter)
                 .monitorExecution(monitorExecution).failover(failover).misfire(misfire)
                 .maxTimeDiffSeconds(maxTimeDiffSeconds).reconcileIntervalMinutes(reconcileIntervalMinutes)
-                .jobShardingStrategyType(jobShardingStrategyType).jobExecutorServiceHandlerType(jobExecutorServiceHandlerType).jobErrorHandlerType(jobErrorHandlerType)
+                .jobShardingStrategyType(jobShardingStrategyType).jobExecutorServiceHandlerType(jobExecutorServiceHandlerType)
                 .jobListenerTypes(jobListenerTypes.toArray(new String[]{})).description(description).disabled(disabled).overwrite(overwrite).build();
         for (Object each : props.keySet()) {
             result.getProps().setProperty(each.toString(), props.get(each.toString()).toString());
@@ -106,7 +104,6 @@ public final class JobConfigurationPOJO {
         result.setReconcileIntervalMinutes(jobConfiguration.getReconcileIntervalMinutes());
         result.setJobShardingStrategyType(jobConfiguration.getJobShardingStrategyType());
         result.setJobExecutorServiceHandlerType(jobConfiguration.getJobExecutorServiceHandlerType());
-        result.setJobErrorHandlerType(jobConfiguration.getJobErrorHandlerType());
         result.setJobListenerTypes(jobConfiguration.getJobListenerTypes());
         result.setDescription(jobConfiguration.getDescription());
         result.setProps(jobConfiguration.getProps());

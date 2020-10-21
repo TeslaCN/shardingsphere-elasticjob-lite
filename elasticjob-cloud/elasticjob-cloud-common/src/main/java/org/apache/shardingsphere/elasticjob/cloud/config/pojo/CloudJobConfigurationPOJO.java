@@ -64,8 +64,6 @@ public final class CloudJobConfigurationPOJO {
     
     private String jobExecutorServiceHandlerType;
     
-    private String jobErrorHandlerType;
-    
     private String description;
     
     private Properties props = new Properties();
@@ -84,7 +82,7 @@ public final class CloudJobConfigurationPOJO {
                 .cron(cron).shardingItemParameters(shardingItemParameters).jobParameter(jobParameter)
                 .monitorExecution(monitorExecution).failover(failover).misfire(misfire)
                 .maxTimeDiffSeconds(maxTimeDiffSeconds).reconcileIntervalMinutes(reconcileIntervalMinutes)
-                .jobShardingStrategyType(jobShardingStrategyType).jobExecutorServiceHandlerType(jobExecutorServiceHandlerType).jobErrorHandlerType(jobErrorHandlerType)
+                .jobShardingStrategyType(jobShardingStrategyType).jobExecutorServiceHandlerType(jobExecutorServiceHandlerType)
                 .description(description).disabled(disabled).overwrite(overwrite).build();
         for (Object each : props.keySet()) {
             jobConfig.getProps().setProperty(each.toString(), props.get(each.toString()).toString());
@@ -116,7 +114,6 @@ public final class CloudJobConfigurationPOJO {
         result.setReconcileIntervalMinutes(cloudJobConfig.getJobConfig().getReconcileIntervalMinutes());
         result.setJobShardingStrategyType(cloudJobConfig.getJobConfig().getJobShardingStrategyType());
         result.setJobExecutorServiceHandlerType(cloudJobConfig.getJobConfig().getJobExecutorServiceHandlerType());
-        result.setJobErrorHandlerType(cloudJobConfig.getJobConfig().getJobErrorHandlerType());
         result.setDescription(cloudJobConfig.getJobConfig().getDescription());
         result.setProps(cloudJobConfig.getJobConfig().getProps());
         result.setDisabled(cloudJobConfig.getJobConfig().isDisabled());
